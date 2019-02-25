@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-#comments
+#comments sample
 
 # Register your models here.
