@@ -7,7 +7,6 @@ An email address should be at least provided
 {% block content %}
   <div class="row">
         <h2><br>New account<br></h2>
-        <p>Please, add a proxy renter:<br><br></p>
   </div>
   {% if user_form.errors %}
     <div class="row">
@@ -35,11 +34,9 @@ An email address should be at least provided
          <div class="col-md-6">
             <form action="" method="post">
               {% csrf_token %}
-                    {{ user_form.email|as_crispy_field }}
-                    {{ user_form.password|as_crispy_field }}
                     {{ user_form.first_name|as_crispy_field }}
                     {{ user_form.last_name|as_crispy_field }}
-                    {{ user_form.address|as_crispy_field }}
+                    {{ user_form.street_address|as_crispy_field }}
                     <div class="form-row">
                       <div class="form-group col-md-6 mb-0">
                             {{ user_form.city|as_crispy_field }}
@@ -51,6 +48,9 @@ An email address should be at least provided
                             {{ user_form.zipcode|as_crispy_field }}
                       </div>
                     </div>
+                    {{ user_form.email|as_crispy_field }}
+                    {{ user_form.password|as_crispy_field }}
+                    {{ user_form.password2|as_crispy_field}}
                     <div style="text-align: right;">
                         <br><button type="submit" class="save btn btn-primary">Sign up</button>
                     </div>
