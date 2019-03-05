@@ -1,0 +1,35 @@
+<!-- This page is for detail about a user
+-->
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block content %}
+{% if user.is_authenticated %}
+  <div class="row">
+        <h2><br>My profile<br></h2>
+                <a class="btn btn-default btn_edit" href="{% url 'profile_edit' pk=user_form.pk %}">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+  </div>
+   <div class="row">
+      <div class="col-md-12">
+         <div class="col-md-6">
+                    <div class="form-row">
+
+                            First Name: {{ user_form.first_name }}<br>
+                            Last name: {{ user_form.last_name }}
+                    </div>
+
+                    <div class="form-row">
+                        Address:<br>
+                            {{ user_form.street_address }}<br>
+                            {{ user_form.city }}<br>
+                            {{ user_form.state }}<br>
+                            {{ user_form.zipcode }}
+                    </div>
+         <div class="col-md-6"></div>
+      </div>
+   </div>
+</div>
+{% endif %}
+{% endblock %}

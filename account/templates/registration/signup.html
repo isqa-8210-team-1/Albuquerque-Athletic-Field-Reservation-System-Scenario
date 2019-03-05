@@ -1,0 +1,48 @@
+<!-- This page is for signing up --
+    A user is by default, a simple user like 'Renter'
+-->
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block content %}
+  <div class="row">
+        <h2><br>Create an account<br></h2>
+  </div>
+  {% if user_form.errors %}
+    <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Error!</div>
+                    <div class="panel-body">
+                       <p><font color="red">
+                           {% for field in user_form %}
+                            {% if field.errors %}
+                                {{ field.label_tag }}
+                                {{ field.errors }}
+                            {% endif %}
+                           {% endfor %}
+                           </font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+    </div>
+  {% endif %}
+  <div class="row">
+      <div class="col-md-12">
+         <div class="col-md-4">
+            <form action="" method="post">
+              {% csrf_token %}
+                    {{ user_form.email|as_crispy_field }}
+                    {{ user_form.password|as_crispy_field }}
+                    {{ user_form.password2|as_crispy_field }}
+                    <div style="text-align: right;">
+                        <br><button type="submit" class="save btn btn-primary">Sign up</button>
+                    </div>
+                </form>
+            <div class="col-md-8"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
