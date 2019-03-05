@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, View, ListView
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
+
 def HomePageView(request):
    return render(request, 'base.html')
 
