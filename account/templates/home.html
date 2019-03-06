@@ -2,12 +2,27 @@
 {% load staticfiles %}
 {% block content %}
 
+
+{#<script type="text/javascript">#}
+{#<!--#}
+{#function myFunction() {#}
+{##}
+{#        $('.page-container').hide();#}
+{##}
+{#};#}
+{##}
+{#//-->#}
+{#</script>#}
+
+
 <html>
    <body>
    <h1><strong> ALBUQUERQUE ATHLETIC FIELD RESERVATION SYSTEM </strong> </h1>
             {% if user.is_authenticated %}
-                <div class="page-container">
-                    <h2 class="top-menu">Hello {{ user.first_name }},</h2>
+                <div class="page-container" onload="myFunction()">
+                    <h2 class="top-menu" id="foo">Hello {{ user.first_name }}, </h2>
+                <h3>Welcome to Albuquerque Athletic Field</h3>
+
                 </div>
             {% else %}
                 <br><br>
@@ -23,6 +38,7 @@
                 </div>
             </div>
     </body>
+
 <style>
 h1{
     color: white}
