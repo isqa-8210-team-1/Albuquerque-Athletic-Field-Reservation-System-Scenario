@@ -12,8 +12,11 @@ urlpatterns = [
     path('', views.home, name='home'),
     re_path(r'^home/$', views.home, name='home'),
     path('', views.HomePageView, name = 'home'),
-    path('users/<int:pk>/',views.profile_view, name='profile_view'),
-    path('users/<int:pk>/edit/',views.profile_edit, name='profile_edit'),
+    path('user/<int:pk>/',views.profile_view, name='profile_view'),
+    path('user/<int:pk>/edit/',views.profile_edit, name='profile_edit'),
     path('signup/', views.signup, name='signup'),
     path('register/', views.registerFullProfile, name='register'),
+    path('contact/', views.contact, name='contact'),
+    path('FAQ/', views.FAQ, name='FAQ'),
+
 ]

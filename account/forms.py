@@ -40,7 +40,7 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = MyUser
-        fields = ('email', 'password', 'first_name', 'last_name', 'organization', 'street_address', 'city', 'state', 'zipcode')
+        fields = ('email', 'first_name', 'last_name', 'street_address', 'city', 'state', 'zipcode')
 
     def __init__(self, *args, **kwargs):
         super(UpdateProfileForm, self).__init__(*args, **kwargs)
@@ -48,3 +48,11 @@ class UpdateProfileForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.layout = Layout(Field('email', type='hidden'))
         self.helper.layout = Layout(Field('password', type='hidden'))
+
+class ContactForm(forms.Form):
+    Name = forms.CharField(required=True)
+    Email = forms.EmailField(required=True)
+    Subject = forms.CharField(required=False)
+    Message = forms.CharField(
+    required=True,
+    widget=forms.Textarea)

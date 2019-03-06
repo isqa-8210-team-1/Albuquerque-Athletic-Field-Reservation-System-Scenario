@@ -49,20 +49,32 @@ def registerFullProfile(request):
 @login_required
 def profile_edit(request, pk):
    user = get_object_or_404(MyUser, pk=pk)
-   #if request.method == "POST":
-   #    # update
-   #    form = UpdateProfileForm(request.POST, instance=user)
-   #    if form.is_valid():
-   #        user = form.save(commit=False)
-   #        user.save()
-   #        action = "edited"
-   #        return render(request, 'registration/profile_view.html', {'user_form': user, 'action': action})
-   #else:
-   # TODO: update to edit
-   #form = UpdateProfileForm(instance=user)
-   return render(request, 'registration/profile_view.html', {'user_form': user})
+   if request.method == "POST":
+      # update
+      form = UpdateProfileForm(request.POST, instance=user)
+      if form.is_valid():
+          user = form.save(commit=False)
+          user.save()
+          action = "edited"
+          return render(request, 'registration/profile_view.html', {'user_form': user, 'action': action})
+   else:
+       # edit
+    form = UpdateProfileForm(instance=user)
+   return render(request, 'registration/profile_edit.html', {'form': form})
+
 
 @login_required
 def profile_view(request, pk):
    user = get_object_or_404(MyUser, pk=pk)
    return render(request, 'registration/profile_view.html', {'user_form': user})
+
+
+def contact(request):
+    form_class = ContactForm
+
+    return render(request, 'registration/contact.html', {
+        'form': form_class,
+    })
+
+def FAQ(request):
+ return render(request, 'registration/FAQ.html', {'registration': FAQ})
