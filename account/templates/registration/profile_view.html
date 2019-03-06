@@ -5,17 +5,20 @@
 {% load staticfiles %}
 {% block content %}
 {% if user.is_authenticated %}
-  <div class="row">
+    <div class="row">
         <h2><br>My profile<br></h2>
+  </div>
+
                 <a class="btn btn-default btn_edit" href="{% url 'profile_edit' pk=user_form.pk %}">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a>
-  </div>
+
    <div class="row">
       <div class="col-md-12">
          <div class="col-md-6">
                     <div class="form-row">
 
+              {% csrf_token %}
                             First Name: {{ user_form.first_name }}<br>
                             Last name: {{ user_form.last_name }}
                     </div>
