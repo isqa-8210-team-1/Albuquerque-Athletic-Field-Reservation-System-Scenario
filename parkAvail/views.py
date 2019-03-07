@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from django.views.generic import TemplateView, View, ListView
 
 def park_list(request):
-    park = park.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'parkAvail/park_list.html',
+    park = Park.objects.filter(created_date__lte=timezone.now())
+    return render(request, 'park_list.html',
                  {'parks': park})
 
 def park_new(request):
@@ -15,9 +16,9 @@ def park_new(request):
            park.created_date = timezone.now()
            park.save()
            parks = park.objects.filter(created_date__lte=timezone.now())
-           return render(request, 'parkAvail/park_list.html',
+           return render(request, 'park_list.html',
                          {'parks': parks})
    else:
        form = ParkForm()
 
-   return render(request, 'parkAvail/park_new.html', {'form': form})
+   return render(request, 'park_new.html', {'form': form})
