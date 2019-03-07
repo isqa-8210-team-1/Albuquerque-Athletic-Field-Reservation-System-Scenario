@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}Albuquerque Athletic Field | Help Center {{ block.super }}{% endblock %}
+{% block content %}
+
+   <!-- Contact us page -->
+
+    <h1> Albuquerque Athletic Field | Help Center</h1><br/>
+
+<h3 id="i-cant-remember-my-password-for-signing-in-how-do-i-reset-it">I can’t remember my password for signing in. How do I reset it?</h3>
+
+<p>If you can’t remember your password, you can use the ‘Forgot?’ link next to ‘Password’ on the <a href="{ % url 'signup' %}">Sign In page</a> to reset it. Be sure to enter the same email address as the one you have registered with Albuquerque.</p>
+
+<h3 id="i-cant-sign-in-after-resetting-my-password">I can’t sign in after resetting my password.</h3>
+
+<p>Be sure you’re using the same email address that you used to reset when signing in to your account. Also, note that passwords are case-sensitive; make sure there are no extra spaces in the password field when you try to sign in.</p>
+
+<p><a href="{% url 'contact' %}">Contact us</a> if you continue to have trouble.</p>
+
+<h3 id="i-cant-sign-in-to-my-team-account-and-it-doesnt-recognize-my-email-how-do-i-sign-in">I can’t sign in to my Team account and it doesn’t recognize my email. How do I sign in?</h3>
+
+<p>You can’t sign directly into a team account; rather you sign into your personal/team owner account. A team owner is able to act as that team when needed. See more information about acting on behalf of the team</a>.</p>
+
+<h3 id="i-get-a-recaptcha-failed-message-when-trying-to-sign-up">I get a “reCAPTCHA failed” message when trying to sign up.</h3>
+
+
+
+<p>If the CAPTCHA does not appear in the signup form, disable any ad blockers or content blockers which might prevent the reCAPTCHA JavaScript from loading and try again.</p>
+
+<p><a href="{% url 'contact' %}">Contact us</a> if you continue to have trouble.</p>
+
+<h2 id="accounts--billing">Accounts &amp; Billing</h2>
+
+<h3 id="where-can-i-find-a-receipt-for-my-purchase">Where can I find a receipt for my purchase?</h3>
+
+<p>You can view your entire purchase history, including printable receipts for your orders, on the <a href="">Billing</a> page under your Albuquerque account settings.</p>
+
+<p>If you purchased a job listing, we also attached a PDF receipt to the confirmation email you received.</p>
+
+<h3 id="can-i-have-a-username-that-is-already-taken">Can I have a username that is already taken?</h3>
+
+<p>Perhaps. Inactive Albuquerque accounts may be renamed or removed at our discretion. We will not rename or remove an active account except in the case of name squatting, which is prohibited. You can request a username for an account that appears inactive, but please note that not all activity on Albuquerque is publicly visible.</p>
+
+<p>Albuquerque usernames are provided on a first-come, first-served basis, and are intended for immediate and active use. Usernames may not be inactively held for future use.</p>
+
+<p>Attempts to buy, sell, or solicit other forms of payment in exchange for Albuquerque accounts or usernames are prohibited and may result in account suspension or removal.</p>
+
+<h3 id="can-you-send-me-an-invoice">Can you send me an invoice?</h3>
+
+<p>We don’t provide invoices but do provide receipts, which are emailed after purchases and available for reference on the <a href="">Billing</a> page under your Albuquerque account settings.</p>
+
+<p>If you need more detail on your receipts for invoicing purposes, you can add extra information to them. Use the Receipt Info form on the <a href="">Billing</a> page to add information such as a company address or tax ID. The extra information provided will be displayed on all receipts.</p>
+
+{% endblock %}
