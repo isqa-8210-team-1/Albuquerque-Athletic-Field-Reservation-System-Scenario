@@ -21,4 +21,4 @@ def park_new(request):
    else:
        form = ParkForm()
 
-   return render(request, 'park_new.html', {'form': form})
+   return render(request, 'manage_park/park_new.html', {'form': form})
