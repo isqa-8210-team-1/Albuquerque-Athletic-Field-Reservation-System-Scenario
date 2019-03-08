@@ -3,8 +3,10 @@ from .models import *
 from .forms import *
 from django.views.generic import TemplateView, View, ListView
 
+
 def park_list(request):
     park = Park.objects.filter(created_date__lte=timezone.now())
+    properties = Property.objects.filter(park).count(park)
     return render(request, 'park_list.html',
                  {'parks': park})
 
@@ -35,9 +37,18 @@ def property_new(request):
    return render(request, 'manage_park/property_new.html', {'form': form})
 
 
-def properties(request, pk):
-    park = get_object_or_404(Park, pk=pk)
-    parks = Park.objects.filter(created_date__lte=timezone.now())
-    properties = Property.objects.filter(park_name=pk)
-    return render(request, 'properties.html', {'parks': parks,
-                                                    'properties': properties,})
+def properties(request, park_slug=None):
+    park = None
+    parks = Park.objects.all()
+    properties = Property.objects.filter()
+    if park_slug:
+        park = get_object_or_404(Park, slug=park_slug)
+        products = products.filter(park=park)
+    return render(request, 'properties.html',
+                            {'park' : park,
+                            'parks': parks,
+                            'properties': properties,})
+
+def property_detail(request, id, slug):
+    product = get_object_or_404(Property,id=id, slug=slug)
+    return render(request, 'property_detail.html', {'property': property})
