@@ -10,7 +10,7 @@
   </li>
   {% for park in parks %}
   <li {% if park.slug == park.slug %}class="selected"{% endif%}>
-    <a href="">{{ park.name }}</a>
+    <a href="">{{ park.park_name }}</a>
   </li>
 {% endfor %}
 </ul>
@@ -23,7 +23,7 @@
 </h1>
 {% for property in properties %}
 <div class="item">
-<a href="">{{ property.name }}</a>
+<a href="">{{ property.property_name }}</a>
 </div>
 {% endfor %}
 </div>
