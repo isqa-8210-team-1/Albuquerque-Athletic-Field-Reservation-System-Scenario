@@ -8,6 +8,6 @@ class ParkAdmin(admin.ModelAdmin):
 admin.site.register(Park, ParkAdmin)
 
 class PropertyAdmin(admin.ModelAdmin):
-    list_display = ['property_name', 'slug', 'property_description', 'property_guest_capacity','location_in_park', 'created', 'updated']
+    list_display = ['property_name', 'slug', 'property_description', 'property_guest_capacity','location_in_park']
     prepopulated_fields = {'slug': ('property_name',)}
 admin.site.register(Property, PropertyAdmin)

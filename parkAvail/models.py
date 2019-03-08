@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 # Model for parks
 class Park(models.Model):
@@ -24,8 +25,13 @@ class Park(models.Model):
         self.updated_date = timezone.now()
         self.save()
 
+class Meta:
+    ordering = ('park_name',)
+    verbose_name = 'park'
+    verbose_name_plural = 'parks'
     def __str__(self):
-        return str(self.park_name)
+        return self.park_name
+
 
 
 class Property(models.Model):
@@ -43,9 +49,10 @@ class Property(models.Model):
         self.created_date = timezone.now()
         self.save()
 
-    def updated(self):
-        self.updated_date = timezone.now()
-        self.save()
-
+class Meta:
+    ordering = ('property_name',)
+    verbose_name = 'property'
+    verbose_name_plural = 'properties'
+    index_together = (('id', 'slug'),)
     def __str__(self):
-        return str(self.park_name)
+        return self.park_name
