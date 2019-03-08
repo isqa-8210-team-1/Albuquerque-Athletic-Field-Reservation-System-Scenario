@@ -31,26 +31,22 @@
         <thead>
         <tr class="bg-info">
             <th>Park Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
+            <th>Property Name</th>
+            <th>Property Description</th>
+            <th>Property Guess Capacity</th>
+            <th>Location in the park</th>
             <th colspan="1">Actions</th>
         </tr>
         </thead>
         <tbody>
-        {% for park in parks %}
+        {% for property in properties %}
             <tr>
-                <td>{{ park.park_name }}</td>
-                <td>{{ park.attendant_email }}</td>
-                <td>{{ park.attendant_phone }}</td>
-                <td>{{ park.park_address }}</td>
-                <td>{{ park.city }}</td>
-                <td>{{ park.state }}</td>
-                <td>{{ park.zipcode }}</td>
-                <td><a href="{% url 'properties' pk=park.pk %}" class="btn btn-warning">View Properties</a></td>
+                <td>{{ property.park_name }}</td>
+                <td>{{ property.property_name }}</td>
+                <td>{{ property.property_description }}</td>
+                <td>{{ property.property_guest_capacity }}</td>
+                <td>{{ property.location_in_park }}</td>
+                <td><a href="" class="btn btn-warning">View More Details</a></td>
             </tr>
         {% endfor %}
         </tbody>
