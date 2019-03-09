@@ -46,11 +46,11 @@
                 <td>{{ park.park_name }}</td>
                 <td>{{ park.attendant_email }}</td>
                 <td>{{ park.attendant_phone }}</td>
-                <td>{{ park.address }}</td>
+                <td>{{ park.park_address }}</td>
                 <td>{{ park.city }}</td>
                 <td>{{ park.state }}</td>
                 <td>{{ park.zipcode }}</td>
-                <td><a href="" class="btn btn-warning">View Properties</a></td>
+                <td><a href="{% url 'properties' pk=park.pk %}" class="btn btn-warning">View Properties</a></td>
             </tr>
         {% endfor %}
         </tbody>

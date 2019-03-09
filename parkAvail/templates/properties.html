@@ -1,0 +1,30 @@
+
+{% load staticfiles %}
+{% block content %}
+
+<div id="sidebar">
+<h3>Parks</h3>
+<ul>
+  <li {% if not park %}class="selected"{% endif %}>
+    <a href="{% url "properties" %}">All</a>
+  </li>
+  {% for park in parks %}
+  <li {% if park.slug == park.slug %}class="selected"{% endif%}>
+    <a href="">{{ park.park_name }}</a>
+  </li>
+{% endfor %}
+</ul>
+</div>
+<div id="main" class="property-list">
+<h1>
+  {% if park %}
+  {{ park.name }}
+  {% else %}Properties{% endif%}
+</h1>
+{% for property in properties %}
+<div class="item">
+<a href="">{{ property.property_name }}</a>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
