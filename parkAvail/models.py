@@ -36,7 +36,7 @@ class Park(models.Model):
 
 
 class Property(models.Model):
-    park_name = models.ForeignKey(Park, on_delete=models.CASCADE, related_name='properties')
+    park_name = models.ForeignKey(Park, on_delete=models.CASCADE, related_name='park')
     property_name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=200, db_index=True)
     property_description = models.TextField()
@@ -58,6 +58,6 @@ class Property(models.Model):
         ordering = ('property_name',)
 
     def __str__(self):
-        return self.property_name
+        return self.park_name
 
 

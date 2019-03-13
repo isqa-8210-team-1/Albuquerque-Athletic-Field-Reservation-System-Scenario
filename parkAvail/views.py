@@ -6,7 +6,7 @@ from django.views.generic import TemplateView, View, ListView
 
 def park_list(request):
     park = Park.objects.filter(created_date__lte=timezone.now())
-    #properties = Property.objects.filter(park).count(park)
+    # properties = Property.objects.filter(park).count(park)
     return render(request, 'park_list.html',
                   {'parks': park})
 
@@ -26,9 +26,9 @@ def park_new(request):
         return render(request, 'manage_park/park_new.html', {'form': form})
 
 
-def property_details(request, park_name):
-    property = get_object_or_404(park_name,)
-    return render(request, 'properties.html', {'properties': property})
+def property_details(request):
+    prop = Property.objects.filter(created_date__lte=timezone.now())
+    return render(request, 'properties.html', {'properties': prop})
 
 
 def property_new(request):
@@ -40,7 +40,7 @@ def property_new(request):
             property.save()
             properties = property.objects.filter(created_date__lte=timezone.now())
             return render(request, 'properties.html',
-                          {'properties': properties})
+                          {'properties': property})
     else:
         form = PropertyForm()
         return render(request, 'manage_park/property_new.html', {'form': form})
