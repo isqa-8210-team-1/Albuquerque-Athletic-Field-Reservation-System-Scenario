@@ -1,0 +1,1 @@
+web: gunicorn AlbuquerqueAFR.wsgi --log-file -
