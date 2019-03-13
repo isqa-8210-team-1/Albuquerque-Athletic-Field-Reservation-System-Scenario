@@ -1,0 +1,62 @@
+<!-- This page is for full registration
+An email address should be at least provided
+-->
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block content %}
+  <div class="row">
+        <h2><br>New account<br></h2>
+  </div>
+  {% if user_form.errors %}
+    <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Error!</div>
+                    <div class="panel-body">
+                       <p><font color="red">
+                           {% for field in user_form %}
+                            {% if field.errors %}
+                                {{ field.label_tag }}
+                                {{ field.errors }}
+                            {% endif %}
+                           {% endfor %}
+                           </font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+    </div>
+   {% endif %}
+  <div class="row">
+      <div class="col-md-12">
+         <div class="col-md-6">
+            <form action="" method="post">
+              {% csrf_token %}
+                    {{ user_form.first_name|as_crispy_field }}
+                    {{ user_form.last_name|as_crispy_field }}
+                    {{ user_form.street_address|as_crispy_field }}
+                    <div class="form-row">
+                      <div class="form-group col-md-6 mb-0">
+                            {{ user_form.city|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-4 mb-0">
+                            {{ user_form.state|as_crispy_field }}
+                      </div>
+                      <div class="form-group col-md-2 mb-0">
+                            {{ user_form.zipcode|as_crispy_field }}
+                      </div>
+                    </div>
+                    {{ user_form.email|as_crispy_field }}
+                    {{ user_form.password|as_crispy_field }}
+                    {{ user_form.password2|as_crispy_field}}
+                    <div style="text-align: right;">
+                        <br><button type="submit" class="save btn btn-primary">Sign up</button>
+                    </div>
+                </form>
+            <div class="col-md-6"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
