@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'AlbuquerqueAFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3tlrpu5g0tjh8',
-        'USER': 'hnufebgjqwnxjj',
-        'PASSWORD': '5618123ea51764c3698b113709dd49c6aac1159ccfc800e088b6f9ddd1fef8c3',
-        'HOST': 'postgres://hnufebgjqwnxjj:5618123ea51764c3698b113709dd49c6aac1159ccfc800e088b6f9ddd1fef8c3@ec2-50-17-227-28.compute-1.amazonaws.com:5432/d3tlrpu5g0tjh8',
-        'PORT': '5432',
+        #'NAME': 'd3tlrpu5g0tjh8',
+        #'USER': 'hnufebgjqwnxjj',
+        #'PASSWORD': '5618123ea51764c3698b113709dd49c6aac1159ccfc800e088b6f9ddd1fef8c3',
+        #'HOST': 'postgres://hnufebgjqwnxjj:5618123ea51764c3698b113709dd49c6aac1159ccfc800e088b6f9ddd1fef8c3@ec2-50-17-227-28.compute-1.amazonaws.com:5432/d3tlrpu5g0tjh8',
+        #'PORT': '5432',
 
     }
 }
@@ -98,9 +98,9 @@ try:
     from local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
-    # db_from_env = dj_database_url.config(conn_max_age=500)
-    # DATABASES['default'].update(db_from_env)
-    # DATABASES['default'] = dj_database_url.config()
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+    DATABASES['default'] = dj_database_url.config()
     pass
 
 
@@ -146,7 +146,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 
