@@ -3,57 +3,47 @@
 {% block content %}
 
 
-{#<script type="text/javascript">#}
-{#<!--#}
-{#function myFunction() {#}
-{##}
-{#        $('.page-container').hide();#}
-{##}
-{#};#}
-{##}
-{#//-->#}
-{#</script>#}
-
-
 <html>
    <body>
    <h1><strong> ALBUQUERQUE ATHLETIC FIELD RESERVATION SYSTEM </strong> </h1>
             {% if user.is_authenticated %}
                 <div class="page-container" onload="myFunction()">
-                    <h2 class="top-menu" id="foo">Hello {{ user.first_name }}, </h2>
-                <h3>Welcome to Albuquerque Athletic Field</h3>
-
+                    <h4 class="top-menu" id="foo">Hello {{ user.first_name }}, </h4>
+                <h4>Welcome to Albuquerque Athletic Field</h4>
                 </div>
             {% else %}
                 <br><br>
             {% endif %}
             <div class="content container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="links">
-                            <!-- Example row of columns -->
-                            </div>
-                        </div>
-                    </div>
+                <div id="bg-text">
+                <!-- Example row of columns -->
+                    <h2> COME PLAY, PARTY OR RELAX!</h2>
+
+                    <h3> Make a reservation of a football field for you team, book a pavilion for a birthday party,
+                        book a softball field for your school team! Choose a park near you and make
+                        a reservation now!
+                    </h3>
                 </div>
             </div>
     </body>
 
 <style>
-h1{
-    color: white}
+    h1{
+        color: white}
 
-body {
-    background-image: url("https://chsaanow.com/wp-content/uploads/2013/07/20130730_CHSAA_DENVER_EAST_127.jpg");
+    body {
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+        background-image: url("https://chsaanow.com/wp-content/uploads/2013/07/20130730_CHSAA_DENVER_EAST_127.jpg");
 
-    filter: blur(px);
-}
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
 
-    </style>
+
+
+        }
+
+</style>
 {% endblock %}
 
