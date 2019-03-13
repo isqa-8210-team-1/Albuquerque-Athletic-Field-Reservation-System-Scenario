@@ -3,17 +3,6 @@
 {% block content %}
 
 
-{#<script type="text/javascript">#}
-{#<!--#}
-{#function myFunction() {#}
-{##}
-{#        $('.page-container').hide();#}
-{##}
-{#};#}
-{##}
-{#//-->#}
-{#</script>#}
-
 
 <html>
 <head>
@@ -45,7 +34,6 @@
                 <td>{{ property.property_description }}</td>
                 <td>{{ property.property_guest_capacity }}</td>
                 <td>{{ property.location_in_park }}</td>
-                {# <td><a href="{% url 'properties' pk=park.pk %}" class="btn btn-warning">View Properties</a></td> #}
             </tr>
         {% endfor %}
         </tbody>

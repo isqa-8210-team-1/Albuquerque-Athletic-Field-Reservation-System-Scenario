@@ -26,15 +26,13 @@ class Park(models.Model):
         self.updated_date = timezone.now()
         self.save()
 
+    class Meta:
+        ordering = ('park_name',)
+        verbose_name = 'park'
+        verbose_name_plural = 'parks'
 
-class Meta:
-    ordering = ('park_name',)
-    verbose_name = 'park'
-    verbose_name_plural = 'parks'
-
-
-def __str__(self):
-    return self.park_name
+    def __str__(self):
+        return self.park_name
 
 
 class Property(models.Model):
@@ -56,14 +54,10 @@ class Property(models.Model):
         self.updated_date = timezone.now()
         self.save()
 
+    class MetaP:
+        ordering = ('property_name',)
 
-class MetaP:
-    ordering = ('property_name',)
-
-
-def __str__(self):
-    return self.property_name
+    def __str__(self):
+        return self.property_name
 
 
-    #def __str__(self):
-     #   return self.park_name

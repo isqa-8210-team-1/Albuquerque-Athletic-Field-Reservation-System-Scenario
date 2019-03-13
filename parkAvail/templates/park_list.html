@@ -3,24 +3,13 @@
 {% block content %}
 
 
-{#<script type="text/javascript">#}
-{#<!--#}
-{#function myFunction() {#}
-{##}
-{#        $('.page-container').hide();#}
-{##}
-{#};#}
-{##}
-{#//-->#}
-{#</script>#}
-
-
 <html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
+<div id="bc-image"></div>
 <div class="container">
 </div>
 <div class="row">
@@ -51,9 +40,7 @@
                 <td>{{ park.attendant_email }}</td>
                 <td>{{ park.attendant_phone }}</td>
                 <td>
-                <a class="btn btn-primary" href=""
-                                                  role="button">View
-                                                details</a>
+                <a class="btn btn-default" href="{% url 'parkAvail:properties' %}" role="button">View details &raquo;</a>
 
                 </td>
             </tr>
@@ -65,3 +52,5 @@
 </html>
 
 {% endblock %}
+
+

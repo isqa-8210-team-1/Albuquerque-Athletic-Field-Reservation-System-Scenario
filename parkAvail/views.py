@@ -31,11 +31,6 @@ def property_details(request, park_name):
     return render(request, 'properties.html', {'properties': property})
 
 
-def property_detailss(request):
-    property = Property.objects.filter(created_date__lte=timezone.now())
-    return render(request, 'properties.html', {'properties': property})
-
-
 def property_new(request):
     if request.method == "POST":
         form = PropertyForm(request.POST)
@@ -44,6 +39,8 @@ def property_new(request):
             property.created_date = timezone.now()
             property.save()
             properties = property.objects.filter(created_date__lte=timezone.now())
+            return render(request, 'properties.html',
+                          {'properties': properties})
     else:
         form = PropertyForm()
         return render(request, 'manage_park/property_new.html', {'form': form})
