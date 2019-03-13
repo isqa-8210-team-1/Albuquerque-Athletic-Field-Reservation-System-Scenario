@@ -1,4 +1,4 @@
-
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
 
@@ -31,12 +31,12 @@
         <thead>
         <tr class="bg-info">
             <th>Park Name</th>
-            <th>Email</th>
-            <th>Phone</th>
             <th>Address</th>
             <th>City</th>
             <th>State</th>
             <th>Zip Code</th>
+            <th>Email</th>
+            <th>Phone</th>
             <th colspan="1">Actions</th>
         </tr>
         </thead>
@@ -44,13 +44,18 @@
         {% for park in parks %}
             <tr>
                 <td>{{ park.park_name }}</td>
-                <td>{{ park.attendant_email }}</td>
-                <td>{{ park.attendant_phone }}</td>
                 <td>{{ park.park_address }}</td>
                 <td>{{ park.city }}</td>
                 <td>{{ park.state }}</td>
                 <td>{{ park.zipcode }}</td>
-                <td><a href="{% url 'properties' pk=park.pk %}" class="btn btn-warning">View Properties</a></td>
+                <td>{{ park.attendant_email }}</td>
+                <td>{{ park.attendant_phone }}</td>
+                <td>
+                <a class="btn btn-primary" href=""
+                                                  role="button">View
+                                                details</a>
+
+                </td>
             </tr>
         {% endfor %}
         </tbody>

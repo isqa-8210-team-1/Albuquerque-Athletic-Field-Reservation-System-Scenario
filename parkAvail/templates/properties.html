@@ -1,30 +1,57 @@
-
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
 
-<div id="sidebar">
-<h3>Parks</h3>
-<ul>
-  <li {% if not park %}class="selected"{% endif %}>
-    <a href="{% url "properties" %}">All</a>
-  </li>
-  {% for park in parks %}
-  <li {% if park.slug == park.slug %}class="selected"{% endif%}>
-    <a href="">{{ park.park_name }}</a>
-  </li>
-{% endfor %}
-</ul>
+
+{#<script type="text/javascript">#}
+{#<!--#}
+{#function myFunction() {#}
+{##}
+{#        $('.page-container').hide();#}
+{##}
+{#};#}
+{##}
+{#//-->#}
+{#</script>#}
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
 </div>
-<div id="main" class="property-list">
-<h1>
-  {% if park %}
-  {{ park.name }}
-  {% else %}Properties{% endif%}
-</h1>
-{% for property in properties %}
-<div class="item">
-<a href="">{{ property.property_name }}</a>
+<div class="row">
+    <h2 style="padding-left: 15Px">Property Information</h2>
 </div>
-{% endfor %}
+<div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr class="bg-info">
+            <th>Park Name</th>
+            <th>Property Name</th>
+            <th>Property Description</th>
+            <th>Guest Capacity</th>
+            <th>Location in Park</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for property in properties %}
+            <tr>
+                <td>{{ property.park_name }}</td>
+                <td>{{ property.property_name }}</td>
+                <td>{{ property.property_description }}</td>
+                <td>{{ property.property_guest_capacity }}</td>
+                <td>{{ property.location_in_park }}</td>
+                {# <td><a href="{% url 'properties' pk=park.pk %}" class="btn btn-warning">View Properties</a></td> #}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
+</body>
+</html>
+
 {% endblock %}

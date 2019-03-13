@@ -7,7 +7,9 @@ from .models import Park, Property
 class ParkForm(forms.ModelForm):
     class Meta:
         model = Park
-        fields = ('park_name', 'park_attendant', 'attendant_email', 'park_address', 'city', 'state', 'zipcode', 'attendant_phone')
+        fields = ('park_name', 'park_attendant', 'attendant_email', 'park_address', 'city', 'state', 'zipcode',
+                  'attendant_phone')
+
 
 class PropertyForm(forms.ModelForm):
     class Meta:

@@ -2,16 +2,17 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
+
 # Model for parks
 class Park(models.Model):
     park_name = models.CharField(max_length=50, null=True, blank=True)
-    slug = models.SlugField(max_length=200,db_index=True,unique=True)
-    park_attendant = models.CharField(max_length=50, null=True, blank=True)
-    attendant_email = models.EmailField(max_length=100, null=True, blank=True)
+    slug = models.SlugField(max_length=200,db_index=True, unique=True)
     park_address = models.CharField(max_length=200,  null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
     state = models.CharField(max_length=50, null=True, blank=True)
     zipcode = models.CharField(max_length=10, null=True, blank=True)
+    park_attendant = models.CharField(max_length=50, null=True, blank=True)
+    attendant_email = models.EmailField(max_length=100, null=True, blank=True)
     attendant_phone = models.CharField(max_length=50, null=True, blank=True)
     created_date = models.DateTimeField(
         default=timezone.now)
@@ -25,13 +26,15 @@ class Park(models.Model):
         self.updated_date = timezone.now()
         self.save()
 
+
 class Meta:
     ordering = ('park_name',)
     verbose_name = 'park'
     verbose_name_plural = 'parks'
-    def __str__(self):
-        return self.park_name
 
+
+def __str__(self):
+    return self.park_name
 
 
 class Property(models.Model):
@@ -49,10 +52,18 @@ class Property(models.Model):
         self.created_date = timezone.now()
         self.save()
 
-class Meta:
+    def updated(self):
+        self.updated_date = timezone.now()
+        self.save()
+
+
+class MetaP:
     ordering = ('property_name',)
-    verbose_name = 'property'
-    verbose_name_plural = 'properties'
-    index_together = (('id', 'slug'),)
-    def __str__(self):
-        return self.park_name
+
+
+def __str__(self):
+    return self.property_name
+
+
+    #def __str__(self):
+     #   return self.park_name
