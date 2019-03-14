@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,12 +40,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="Procfile" value="1" />
           <entry key="activate" value="1" />
           <entry key="css" value="1" />
           <entry key="html" value="41" />
           <entry key="jpg" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="78" />
+          <entry key="py" value="79" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -54,8 +55,8 @@
           <entry key="CSS" value="1" />
           <entry key="HTML" value="41" />
           <entry key="Image" value="2" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="78" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Python" value="79" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,7 +64,7 @@
           <entry key="activate" value="1" />
           <entry key="css" value="9" />
           <entry key="html" value="983" />
-          <entry key="py" value="895" />
+          <entry key="py" value="900" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -72,37 +73,13 @@
           <entry key="CSS" value="9" />
           <entry key="HTML" value="983" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="895" />
+          <entry key="Python" value="900" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parkAvail/templates/properties.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#h2#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parkAvail/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parkAvail/templates/manage_park/property_new.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -153,7 +130,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -161,6 +138,20 @@
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="148" column="37" lean-forward="true" selection-start-line="148" selection-start-column="37" selection-end-line="148" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -214,8 +205,8 @@
         <option value="$PROJECT_DIR$/parkAvail/templates/park_list.html" />
         <option value="$PROJECT_DIR$/parkAvail/admin.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" />
         <option value="$PROJECT_DIR$/parkAvail/views.py" />
+        <option value="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" />
       </list>
     </option>
   </component>
@@ -246,7 +237,7 @@
             <path>
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="AlbuquerqueAFR" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
@@ -312,8 +303,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23990306" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23990306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,7 +319,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24931507" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.1520548" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -434,13 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="92" column="9" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -532,6 +517,16 @@
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="148" column="37" lean-forward="true" selection-start-line="148" selection-start-column="37" selection-end-line="148" selection-end-column="37" />
         </state>
       </provider>
     </entry>
