@@ -31,6 +31,12 @@ ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'account.MyUser'
 
 
+
+LOGIN_REDIRECT_URL = '/home'
+
+LOGOUT_REDIRECT_URL = '/home'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -145,8 +151,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),
 )
 
 
@@ -165,5 +172,5 @@ EMAIL_PORT = 2525
 #EMAIL_USE_TLS = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-LOGIN_REDIRECT_URL = '/home'
+
 
