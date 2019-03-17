@@ -5,6 +5,7 @@ An email address should be at least provided
 {% load crispy_forms_tags %}
 {% load staticfiles %}
 {% block content %}
+
   <div class="row">
         <h2><br>New account<br></h2>
   </div>
@@ -38,6 +39,7 @@ An email address should be at least provided
                     {{ user_form.last_name|as_crispy_field }}
                     {{ user_form.street_address|as_crispy_field }}
                     <div class="form-row">
+
                       <div class="form-group col-md-6 mb-0">
                             {{ user_form.city|as_crispy_field }}
                       </div>
