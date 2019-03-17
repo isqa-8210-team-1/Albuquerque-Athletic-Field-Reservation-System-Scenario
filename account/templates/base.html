@@ -13,6 +13,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <title>{% block title %}{% endblock %}</title>
+<style>
+    img {
+
+           width: 100px;
+            height: 35px;
+        image-resolution:300dpi;
+        img-position:center;
+        border:0px;
+        background-size: cover;
+            }
+</style>
 </head>
 <body>
     <script src="{% static 'js/jquery-2.0.3.min.js' %}"></script>
@@ -32,13 +43,15 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="/">
-
+                <div class="logo">
+                <a id="logo" title="Albuquerque" class="navbar-brand" href="{% url 'home' %}" data-heigth="40" data-padding="32">
+                    <img src="{% static "images/capture.jpg" %}" style="color: orange" width="20px" height="30px"/>
                 </a>
+                    </div>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href={% url 'home' %}>Home</a></li>
+{#                    <li><a href={% url 'home' %}>Home</a></li>#}
                     <li><a href="{% url 'parkAvail:park_list' %}">Reservation</a></li>
 
                 </ul>
@@ -47,19 +60,20 @@
                     <li><a href="{% url 'contact' %}">Contact us</a></li>
 
                     {% if user.is_authenticated %}
+
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false">
+                               {{ user.first_name }} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li></li>
                                 <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                                 <li><a href="{% url 'profile_view' pk=user.pk %}">Profile</a></li>
                             </ul>
                         </li>
+                        </li>
                     {% else %}
                         <li><a href="{% url 'register' %}">Sign up</a></li>
-                        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                     {% endif %}
                 </ul>
             </div>

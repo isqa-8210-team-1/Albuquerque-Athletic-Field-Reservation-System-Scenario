@@ -2,6 +2,4 @@
 db.sqlite3
 venv
 *__pycache__*
-local_settings.py
-.idea/*
-.idea/workspace.xml
+local_settings.pyc
