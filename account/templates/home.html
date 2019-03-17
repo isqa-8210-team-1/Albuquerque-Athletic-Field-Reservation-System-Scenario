@@ -7,29 +7,41 @@
    <body>
    <h1><strong> ALBUQUERQUE ATHLETIC FIELD RESERVATION SYSTEM </strong> </h1>
             {% if user.is_authenticated %}
-                <div class="page-container" onload="myFunction()">
-                    <h4 class="top-menu" id="foo">Hello {{ user.first_name }}, </h4>
-                <h4>Welcome to Albuquerque Athletic Field</h4>
-                </div>
+{#                <div class="page-container" onload="myFunction()">#}
+{#                    <h4 class="top-menu" id="foo">Hello {{ user.first_name }}, </h4>#}
+{#                <h4>Welcome to Albuquerque Athletic Field</h4>#}
+{#                </div>#}
             {% else %}
                 <br><br>
             {% endif %}
             <div class="content container">
                 <div id="bg-text">
                 <!-- Example row of columns -->
-                    <h2> COME PLAY, PARTY OR RELAX!</h2>
+                    <h3> COME PLAY, PARTY OR RELAX!</h3>
 
-                    <h3> Make a reservation of a football field for you team, book a pavilion for a birthday party,
-                        book a softball field for your school team! Choose a park near you and make
-                        a reservation now!
-                    </h3>
+{#                    <h3> Make a reservation of a football field for you team, book a pavilion for a birthday party,#}
+{#                        book a softball field for your school team! Choose a park near you and make#}
+{#                        a reservation now!#}
+{#                    </h3>#}
                 </div>
             </div>
     </body>
 
 <style>
     h1{
-        color: white}
+        color: white;
+        text-align: center;
+    }
+
+    h3 {
+        color: #cc0000;
+        text-shadow: 1px 1px 1px #e0d9bd;
+        text-align: center;
+    }
+
+    .h3 textarea {
+        font-family: myriad-pro,"Myriad Web Pro",Calibri,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
 
     body {
 
