@@ -30,6 +30,7 @@ class MyUserManager(BaseUserManager):
             password=password,
         )
         user.is_admin = True
+        user.is_superuser = True
         user.role=5
         user.save(using=self._db)
         return user
@@ -73,8 +74,8 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     def is_staff(self):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
-        if self.is_admin:
-            return self.is_admin
+        if self.is_superuser:
+            return self.is_superuser
         elif self.role == 3 or self.role == 4:
             return True
         return False
