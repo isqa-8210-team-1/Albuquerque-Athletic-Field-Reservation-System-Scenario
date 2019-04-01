@@ -93,16 +93,23 @@ WSGI_APPLICATION = 'AlbuquerqueAFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dceg93kaijoh20',
+        'USER': 'wrfjblibpzbqss',
+        'PASSWORD': 'bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737',
+        'HOST': 'postgres://wrfjblibpzbqss:bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737@ec2-23-23-241-119.compute-1.amazonaws.com:5432/dceg93kaijoh20',
+        'PORT': '5432',
+
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config()
+
+
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
-    # Update database configuration with $DATABASE_URL.
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-    DATABASES['default'] = dj_database_url.config()
     pass
 
 
