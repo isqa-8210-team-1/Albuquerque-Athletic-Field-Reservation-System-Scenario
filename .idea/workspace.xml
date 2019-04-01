@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlbuquerqueAFR/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlbuquerqueAFR/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0002_auto_20190303_1405.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0003_renter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0004_auto_20190304_0926.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0005_auto_20190312_0912_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/static/images/LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/account/static/images/LOGO.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/registration/FAQ.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/registration/FAQ.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/registration/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/registration/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/managePark/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/managePark/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/parkAvail/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/parkAvail/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/parkAvail/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/migrations/0002_auto_20190307_1157.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/migrations/0003_property.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/migrations/0004_auto_20190308_0951.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/migrations/0005_auto_20190313_1548.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/parkAvail/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/templates/manage_park/park_new.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/templates/manage_park/property_new.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/templates/park_list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/templates/properties.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/parkAvail/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkAvail/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/parkAvail/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservSystem/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/reservSystem/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservSystem/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/reservSystem/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservSystem/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/reservSystem/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,19 +60,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account/templates/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2205">
-              <caret line="147" selection-start-line="147" selection-end-line="147" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-end-line="6" />
+            <state>
+              <caret selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -126,11 +77,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="153" selection-start-line="153" selection-end-line="153" />
+            <state relative-caret-position="1515">
+              <caret line="101" column="5" lean-forward="true" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+              <folding>
+                <element signature="e#315#324#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/A0EC4C73-907A-46A0-BDEF-1AD561AEC170/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="163" column="21" lean-forward="true" selection-start-line="163" selection-start-column="21" selection-end-line="163" selection-end-column="21" />
+              <folding>
+                <element signature="e#315#324#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -250,6 +216,11 @@
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="462c0819:PsiDirectoryNode" />
+              <item name="AlbuquerqueAFR" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -299,10 +270,9 @@
     <option name="totallyTimeSpent" value="12620000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18578352" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18578352" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -316,7 +286,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080776" side_tool="true" weight="0.75342464" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49919224" weight="0.82495946" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49919224" visible="true" weight="0.5109589" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -511,8 +481,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        <state relative-caret-position="1515">
+          <caret line="101" column="5" lean-forward="true" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+          <folding>
+            <element signature="e#315#324#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -556,8 +529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-end-line="6" />
+        <state>
+          <caret selection-end-line="6" />
         </state>
       </provider>
     </entry>
