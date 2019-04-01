@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<html>
+<div class="row">
+  <h1> Employee Dashboard </h1>
+    <div class="col-md-12">
+        <div class="links">
+            <!-- Example row of columns -->
+
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h2>Add Park</h2>
+                            <p>If you want to create new park please click the link below with Albuquerque.</p>
+                            <p><a class="btn btn-primary" href="{% url 'park_new' %}"
+                                  role="button">View
+                                details &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                          <h2>Add Property</h2>
+                          <p>If you want to create new Property please click the link below with Albuquerque.</p>
+                          <p><a class="btn btn-primary" href="{% url 'property_new' %}"
+                                  role="button">View
+                                detail &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                          <h2>Manage Park</h2>
+                          <p>If you want to manage the park and properties please click the link below. </p>
+
+                            <p><a class="btn btn-primary" href="{%  url 'park_list' %}"
+                                  role="button">View
+                                details &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                          <h2>View Profile</h2>
+                          <p>If you want to view your profile please click the link below with Albuquerque.</p>
+
+                            <p><a class="btn btn-primary" href="{%  url 'FAQ' %}"
+                                  role="button">View
+                                details &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <style media="screen">
+      .btn-primary{
+        background-color: #249d33;
+        border-color: #249d33;
+        padding: 5px 25px;
+        font-size: 20px;
+      }
+      .btn-primary:hover{
+        background-color: #249d33;
+        border-color: #249d33;
+
+      }
+      .thumbnail{
+        border-radius: 0px;
+        box-shadow: 0 2px 5px 0px;
+      }
+      .row h1{
+        margin: 40px 20px;
+      }
+      .row{
+        margin: 40px 20px;
+      }
+    </style>
+    </html>
+
+
+{% endblock %}

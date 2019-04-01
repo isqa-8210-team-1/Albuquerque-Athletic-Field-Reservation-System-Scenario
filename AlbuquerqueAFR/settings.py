@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'reservSystem',
     'payment',
     'crispy_forms',
+    'GroundKeeper',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'AlbuquerqueAFR.urls'
@@ -167,4 +169,5 @@ EMAIL_PORT = 2525
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

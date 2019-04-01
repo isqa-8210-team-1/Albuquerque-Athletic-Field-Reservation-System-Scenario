@@ -56,3 +56,5 @@ class ContactForm(forms.Form):
     Message = forms.CharField(
     required=True,
     widget=forms.Textarea)
+
+

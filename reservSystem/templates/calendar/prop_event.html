@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row">
+        <h2><br>Reserve a property<br></h2>
+  </div>
+  {% if user_form.errors %}
+  <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Error!</div>
+                    <div class="panel-body">
+                       <p><font color="red">
+
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            {{ field.label }} <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        {{ field.label }} <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                       </font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+   </div>
+   {% endif %}
+   <div class="row">
+     <div class="col-md-12">
+         <div class="col-md-4">
+                <form method="post">
+                  {% csrf_token %}
+                    {{ form.prop_name|as_crispy_field }}
+                    {{ form.day|as_crispy_field }}
+                    {{ form.timeslot|as_crispy_field }}
+                    <button type="submit" class="btn btn-info right"> Submit </button>
+
+                </form>
+         </div>
+         <div class="col-md-8"></div>
+      </div>
+     </div>
+{% endblock %}

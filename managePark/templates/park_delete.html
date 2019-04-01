@@ -1,0 +1,11 @@
+{% block body_block %}
+   <h1>Delete {{ park.name }}?</h1>
+
+   <form method="post">
+       {% csrf_token %}
+       <input type="submit" class="btn btn-danger" value="Delete">
+       <a href="{% url 'park_list' pk=park.park_number %} ">Cancel</a>
+
+   </form>
+
+{% endblock %}

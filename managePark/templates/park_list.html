@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+
+{#<script type="text/javascript">#}
+{#<!--#}
+{#function myFunction() {#}
+{##}
+{#        $('.page-container').hide();#}
+{##}
+{#};#}
+{##}
+{#//-->#}
+{#</script>#}
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+</div>
+<div class="row">
+    <h2 style="padding-left: 15Px">Park Information</h2>
+</div>
+<div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr class="bg-info">
+            <th>Park Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for park in parks %}
+            <tr>
+                <td>{{ park.name }}</td>
+                <td>{{ park.attendant_email }}</td>
+                <td>{{ park.attendant_phone }}</td>
+                <td>{{ park.park_address }}</td>
+                <td>{{ park.city }}</td>
+                <td>{{ park.state }}</td>
+                <td>{{ park.zipcode }}</td>
+                <td><a href="{% url 'park_edit' pk=park.pk %}" class="btn btn-warning">Edit</a></td>
+
+                <td><a href="{% url 'park_delete' pk=park.pk %}" onclick="return confirm('Are you sure you want to delete?')"
+                         class="btn btn-danger">Delete</a>
+                </td>
+
+                <td><a href="" class="btn btn-primary">View Properties</a>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+{% endblock %}

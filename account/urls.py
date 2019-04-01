@@ -1,6 +1,9 @@
 from django.urls import path, re_path
 from django.conf.urls import url
 from . import views
+from django.contrib import admin
+from django.urls import path, include
+
 
 urlpatterns = [
     #url(
@@ -18,5 +21,8 @@ urlpatterns = [
     path('register/', views.registerFullProfile, name='register'),
     path('contact/', views.contact, name='contact'),
     path('FAQ/', views.FAQ, name='FAQ'),
-
+    # path('admin/', admin.site.urls),
+    path('', include('GroundKeeper.urls')),
+    # path('FieldCondition_list', views.FieldCondition_list, name='FieldCondition_list'),
+    # path('FieldCondition_list/<int:pk>/edit/', views.FieldCondition_edit, name='FieldCondition_edit'),
 ]

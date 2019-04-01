@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
@@ -5,8 +6,8 @@ from django.urls import reverse
 
 # Model for parks
 class Park(models.Model):
-    park_name = models.CharField(max_length=50, null=True, blank=True)
-    slug = models.SlugField(max_length=200,db_index=True, unique=True)
+    name = models.CharField(max_length=50, default='', db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True, default='')
     park_address = models.CharField(max_length=200,  null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
     state = models.CharField(max_length=50, null=True, blank=True)
@@ -27,37 +28,40 @@ class Park(models.Model):
         self.save()
 
     class Meta:
-        ordering = ('park_name',)
+        ordering = ('name',)
         verbose_name = 'park'
         verbose_name_plural = 'parks'
 
     def __str__(self):
-        return self.park_name
+        return self.name
+
+    def get_absolute_url(self):
+            return reverse('parkAvail:prop_list_by_park',
+                           args=[self.slug])
 
 
-class Property(models.Model):
-    park_name = models.ForeignKey(Park, on_delete=models.CASCADE, related_name='park')
-    property_name = models.CharField(max_length=100)
+class Prop(models.Model):
+    park_under = models.ForeignKey(Park, related_name='props', on_delete=models.CASCADE)
+    name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
+    image = models.ImageField(upload_to='props/%Y/%m/%d',
+                              blank=True)
     property_description = models.TextField()
     property_guest_capacity = models.IntegerField()
     location_in_park = models.CharField(max_length=50, null=True, blank=True)
-    created_date = models.DateTimeField(
-        default=timezone.now)
-    updated_date = models.DateTimeField(auto_now_add=True)
+    available = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
-    def created(self):
-        self.created_date = timezone.now()
-        self.save()
-
-    def updated(self):
-        self.updated_date = timezone.now()
-        self.save()
-
-    class MetaP:
-        ordering = ('property_name',)
+    class Meta:
+        ordering = ('name',)
+        index_together = (('id', 'slug'),)
 
     def __str__(self):
-        return self.park_name
+        return self.name
+
+    def get_absolute_url(self):
+            return reverse('parkAvail:prop_detail',
+                           args=[self.id, self.slug])
 
 

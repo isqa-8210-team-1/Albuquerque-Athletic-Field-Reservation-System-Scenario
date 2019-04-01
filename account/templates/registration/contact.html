@@ -4,13 +4,14 @@
 {% block title %}Contact Us {{ block.super }}{% endblock %}
 {% block content %}
 
-   <!-- Contact us page -->
-<h2>Contact Albuquerque Athletic Field</h2> <br/>
-<form role="form" action="{% url 'contact' %}" method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="save btn btn-default">Send</button>
+<div class="container">
+       <!-- Contact us page -->
+    <h2>Contact Albuquerque Athletic Field</h2> <br/>
+    <form role="form" action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-default">Send</button>
 
-</form>
-
+    </form>
+</div>
 {% endblock %}

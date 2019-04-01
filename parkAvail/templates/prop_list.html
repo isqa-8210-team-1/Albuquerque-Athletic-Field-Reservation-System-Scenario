@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if park %}{{ park.name }}{% else %}Properties{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<style>
+.alert {
+  padding: 2%;
+    margin: 2%;
+  background-color: green;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+
+
+  <div id="sidebar">
+    <h3>Parks</h3>
+    <ul>
+      <li {% if not park %}class="selected"{% endif %}>
+        <a href="{% url 'parkAvail:prop_list' %}">All</a>
+      </li>
+      {% for c in parks %}
+        <li {% if park.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div id="main" class="prop-list">
+    <h1>{% if park %}{{ park.name }}{% else %}Properties{% endif %}</h1>
+    {% for prop in props %}
+      <div class="item">
+        <a href="{{ prop.get_absolute_url }}">
+          <img src="{% if prop.image %}{{ prop.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        </a>
+        <a href="{{ prop.get_absolute_url }}">{{ prop.name }}</a><br>
+        {{ prop.property_guest_capacity }}
+      </div>
+    {% endfor %}
+  </div>
+
+
+{% endblock %}

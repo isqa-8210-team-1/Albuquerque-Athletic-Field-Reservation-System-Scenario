@@ -72,9 +72,9 @@ def profile_view(request, pk):
 def contact(request):
     form_class = ContactForm
 
-    return render(request, 'registration/contact.html', {
-        'form': form_class,
-    })
+    return render(request, 'registration/contact.html', {'form': form_class})
 
 def FAQ(request):
  return render(request, 'registration/FAQ.html', {'registration': FAQ})
+
+

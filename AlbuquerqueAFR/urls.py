@@ -16,13 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
-    path('', include('parkAvail.urls')),
+
+    path('', include('managePark.urls')),
+    path('park/', include('parkAvail.urls', namespace='parkAvail')),
+    path('schedule/', include('reservSystem.urls', namespace='reservSystem')),
+    #path('', include('parkAvail.urls')),
+
 
     re_path(r'^accounts/profile/$', LoginView.as_view(template_name='authentication/login.html'), name="login"),
     re_path(r'^accounts/profile/logout/$', LogoutView.as_view(template_name='authentication/logout.html'),
             LogoutView.next_page, name="logout"),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -83,3 +83,5 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 # Add relationship to renter in this class
 class Renter(models.Model):
     user = models.OneToOneField(MyUser, on_delete=models.CASCADE, primary_key=True)
+
+
