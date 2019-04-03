@@ -10,7 +10,7 @@
 
     <title>{% block title %}{% endblock %}</title>
 <style>
-    img {
+    #logo_img {
 
            width: 100px;
             height: 35px;
@@ -18,6 +18,19 @@
         img-position:center;
         border:0px;
         background-size: cover;
+            }
+
+            .btn-primary{
+              background-color: #249d33;
+              border-color: #249d33;
+              padding: 5px 25px;
+              font-size: 20px;
+            }
+            .btn-primary:hover{
+              background-color: #249d33;
+              border-color: #249d33;
+
+
             }
 </style>
 </head>
@@ -40,7 +53,7 @@
                 <!-- Branding Image -->
                 <div class="logo">
                 <a id="logo" title="Albuquerque" class="navbar-brand" href="{% url 'home' %}" data-heigth="40" data-padding="32">
-                    <img src="{% static "images/capture.jpg" %}" style="color: orange" width="20px" height="30px"/>
+                    <img id="logo_img" src="{% static "images/capture.jpg" %}" style="color: orange" width="20px" height="30px"/>
                 </a>
                     </div>
             </div>
@@ -74,13 +87,22 @@
             </div>
         </div>
     </nav>
-
-
-            {% block content %}
-            {% endblock %}
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-20">
+                {% block content %}
+                {% endblock %}
+              </div>
+              </div>
+            </div>
 
 
 </body>
+<div id="footer">
+   <div class="container">
+     <p class="footer-block">© 2019 Park Albuquerque. Park is controlled by the City of Albuquerque </p>
+   </div>
+ </div>
 </html>
 
 <style>
@@ -117,12 +139,20 @@
         }
 
         /* Set black background color, white text and some padding */
-        footer {
-            background-color: greenyellow;
-            color: white;
-            padding: 15px;
-        }
+        #footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 40px;
+          background-color: black;
+          color: #9d9d9d;
+          text-align: center;
+          padding: 5px;
+      }
 
+      .content{
+        margin-bottom: 50px;
+      }
         /* On small screens, set height to 'auto' for sidenav and grid */
         @media screen and (max-width: 767px) {
             .sidenav {

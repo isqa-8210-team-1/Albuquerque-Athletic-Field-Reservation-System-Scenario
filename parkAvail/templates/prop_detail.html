@@ -7,15 +7,18 @@
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static "css/pdf.css" %}"></link>
+<link rel="stylesheet" href="{% static "css/base1.css" %}"></link>
   <div class="prop-detail">
     <img src="{% if prop.image %}{{ prop.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-    <h1>{{ prop.name }}</h1>
+    <h1><strong>{{ prop.name }}</strong></h1>
+    <hr />
     <h2>Park: <a href="{{ prop.park_under.get_absolute_url }}">{{ prop.park_under }}</a></h2>
     <p class="description">{{ prop.property_description }}</p>
       <h3>Guest Capacity: <h4>{{ prop.property_guest_capacity }}</h4></h3>
     <h3>Location in Park: <h4>{{ prop.location_in_park }}</h4></h3>
   </div>
   <div>
-    <a class="btn btn-default" href="{% url 'reservSystem:prop_calendar'%}?prop_pk={{ prop.pk }}" role="button"> Schedule &raquo;</a>
+    <a class="btn btn-primary" href="{% url 'reservSystem:prop_calendar'%}?prop_pk={{ prop.pk }}" role="button"> Schedule &raquo;</a>
   </div>
 {% endblock %}

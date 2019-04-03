@@ -17,17 +17,18 @@ class PropertyForm(forms.ModelForm):
 
 
 class EventForm(forms.ModelForm):
-  class Meta:
-    model = Event
-    fields = ('prop_name', 'day', 'timeslot', 'notes')
 
-    # datetime-local is a HTML5 input type, format to make date time show on fields
-    widgets = {
-      'day': DateInput(attrs={'class':'datepicker'}, format='%m/%d/%Y'),
-    }
-    fields = '__all__'
+    class Meta:
+        model = Event
+        fields = ('prop_name', 'day', 'timeslot', 'notes', 'Team_Name', 'Size_of_the_team', 'Name_of_the_organization')
 
-  def __init__(self, *args, **kwargs):
-    super(EventForm, self).__init__(*args, **kwargs)
-    # input_formats to parse HTML5 datetime-local input to datetime field
-    self.fields['day'].input_formats = ('%m/%d/%Y',)
+        # datetime-local is a HTML5 input type, format to make date time show on fields
+        widgets = {
+            'day': DateInput(attrs={'class': 'datepicker'}, format='%m/%d/%Y'),
+        }
+        #fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(EventForm, self).__init__(*args, **kwargs)
+        # input_formats to parse HTML5 datetime-local input to datetime field
+        self.fields['day'].input_formats = ('%m/%d/%Y',)

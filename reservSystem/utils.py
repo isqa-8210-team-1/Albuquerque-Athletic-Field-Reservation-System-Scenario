@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 from .models import Event
 
+
 class Calendar(HTMLCalendar):
 	def __init__(self, year=None, month=None):
 		self.year = year
@@ -15,7 +16,6 @@ class Calendar(HTMLCalendar):
 		d = ''
 		for event in events_per_day:
 			d += f'<li> {event.get_html_url} </li>'
-
 
 		if day != 0:
 			return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
@@ -39,3 +39,4 @@ class Calendar(HTMLCalendar):
 		for week in self.monthdays2calendar(self.year, self.month):
 			cal += f'{self.formatweek(week, events)}\n'
 		return cal
+

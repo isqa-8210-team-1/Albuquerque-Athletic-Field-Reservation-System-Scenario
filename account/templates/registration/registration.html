@@ -6,6 +6,7 @@ An email address should be at least provided
 {% load staticfiles %}
 {% block content %}
 
+    <div class="container">
   <div class="row">
         <h2><br>New account<br></h2>
   </div>
@@ -31,34 +32,34 @@ An email address should be at least provided
     </div>
    {% endif %}
   <div class="row">
-      <div class="col-md-12">
          <div class="col-md-6">
             <form action="" method="post">
               {% csrf_token %}
                     {{ user_form.first_name|as_crispy_field }}
                     {{ user_form.last_name|as_crispy_field }}
                     {{ user_form.street_address|as_crispy_field }}
-                    <div class="form-row">
 
-                      <div class="form-group col-md-6 mb-0">
+                      <div class="col-md-6">
                             {{ user_form.city|as_crispy_field }}
                       </div>
-                      <div class="form-group col-md-4 mb-0">
+                      <div class="col-md-4">
                             {{ user_form.state|as_crispy_field }}
                       </div>
-                      <div class="form-group col-md-2 mb-0">
+                      <div class="col-md-2">
                             {{ user_form.zipcode|as_crispy_field }}
                       </div>
-                    </div>
+
                     {{ user_form.email|as_crispy_field }}
                     {{ user_form.password|as_crispy_field }}
                     {{ user_form.password2|as_crispy_field}}
-                    <div style="text-align: right;">
-                        <br><button type="submit" class="save btn btn-primary">Sign up</button>
-                    </div>
+
+                        <button type="submit" class="save btn btn-primary">Sign up</button>
+
                 </form>
+
             <div class="col-md-6"></div>
             </div>
-        </div>
+
     </div>
+
 {% endblock %}

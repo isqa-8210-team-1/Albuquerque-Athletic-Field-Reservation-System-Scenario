@@ -1,7 +1,6 @@
 <!-- This page is for detail about a user
 -->
 
-
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
@@ -10,9 +9,23 @@
 
     <style>
 
+
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
         .row {
   border-radius: 0px;
-  background-color: #f2f2f2;
   padding: 20px;
 }
     .form-row {
@@ -43,10 +56,12 @@
     </style>
 
 
+
+    <div class="container">
+    <div class="col-md-8">
    <div class="row" style="border: aliceblue">
    <h2><br>My profile<br></h2> <br/>
-      <div class="col-md-12">
-         <div class="col-md-6">
+
              <label>First Name</label>
                     <div class="form-row">
                             {% csrf_token %} {{ form|crispy }}
@@ -64,8 +79,8 @@
                             {{ user_form.zipcode }}
                     </div>
          <div class="col-md-6"></div>
-      </div>
-   </div>
+
+
 </div>
 {% endif %}
 
@@ -73,6 +88,8 @@
 <div class="row">
             <a href="{% url 'profile_edit' pk=user_form.pk %}">
                 <span
-                    class="btn btn-default btn_edit" style="background-color:#ff8000" color:#ff8000>Edit Profile</span></a>
+                    class="btn btn-default btn_edit">Edit Profile</span></a>
         </div>
+</div>
+</div>
 {% endblock %}

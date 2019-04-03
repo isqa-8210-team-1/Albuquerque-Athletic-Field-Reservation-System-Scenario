@@ -5,6 +5,7 @@
 <div class="calendar">
     <div>
         <h2>Schedule for {{ prop_name }}</h2>
+         <h2>Park: <a href="{{ prop_name.get_absolute_url }}">{{ prop_name }}</a></h2>
     </div>
 	<a class="btn btn-info left" href="{% url 'reservSystem:prop_calendar'%}?{{ prop_pk }}&{{ prev_month }}"> Previous Month </a>&nbsp;&nbsp;&nbsp;
 	<a class="btn btn-info" href="{% url 'reservSystem:prop_calendar'%}?{{ prop_pk }}&{{ next_month }}"> Next Month </a>
@@ -12,4 +13,11 @@
     <br><br>
 </div>
 {{ calendar }}
+<p>
+    M1- 6.00 am to 8.00 am;
+    M2- 8.15 am to 10.15 am;
+    M3- 10.30 am to 12.30 pm;
+    E1- 3.00 pm to 5.00 pm;
+    E2- 5.15 pm to 7.15 pm;
+</p>
 {% endblock %}

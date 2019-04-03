@@ -3,6 +3,7 @@ from django.conf.urls import url
 from . import views
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -14,6 +15,7 @@ urlpatterns = [
     #path('', views.HomePageView.as_view(), name='home'),
     path('', views.home, name='home'),
     re_path(r'^home/$', views.home, name='home'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('', views.HomePageView, name = 'home'),
     path('user/<int:pk>/',views.profile_view, name='profile_view'),
     path('user/<int:pk>/edit/',views.profile_edit, name='profile_edit'),

@@ -18,7 +18,7 @@
           font-family: myriad-pro,"Myriad Web Pro",Calibri,"Helvetica Neue",Helvetica,Arial,sans-serif;
       }
       .hero {
-          padding: 85px 5% 50px 5%;
+          
         }
         body {
           background-image: url("https://chsaanow.com/wp-content/uploads/2013/07/20130730_CHSAA_DENVER_EAST_127.jpg");
@@ -43,8 +43,6 @@
       .btn-primary:hover{
         background-color: #249d33;
         border-color: #249d33;
-
-
       }
       .thumbnail{
         border-radius: 0px;
@@ -63,75 +61,34 @@
         text-align: center;
         padding: 5px;
     }
+
+      .btn-primary{
+        background-color: #249d33;
+        border-color: #249d33;
+        padding: 5px 25px;
+        font-size: 20px;
+      }
+      .btn-primary:hover{
+        background-color: #249d33;
+        border-color: #249d33;
+
+      }
+      .thumbnail{
+        border-radius: 0px;
+        box-shadow: 0 2px 5px 0px;
+      }
+      .row h1{
+        margin: 40px 20px;
+      }
+      .row{
+        margin: 40px 20px;
+      }
   </style>
 </head>
 <body id="app-layout">
 
-  {% if user.is_authenticated and user.role == 1 %}
-<article class="hero bg text-center">
-  <div class="hero_img"></div>
-  <div class="content">
-    <div class="full">
-      <h1><strong> ALBUQUERQUE ATHLETIC FIELD RESERVATION SYSTEM </strong> </h1>
-      <h1>Know Where to find Parks Near You</h1>
-      <h2>Get to Know Properties <br>Reservations online</h2>
-      <p><a class="btn btn-primary" href="{% url 'parkAvail:prop_list' %}" role="button">Find Parks</a></p>
-       </div>
-  </article>
 
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="links">
-                            <!-- Example row of columns -->
-
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-
-                                        <div class="caption">
-                                            <h2>Create account</h2>
-                                            <p>If you want to create another account Create account page. Be sure to enter another email address with Albuquerque.</p>
-                                            <p><a class="btn btn-primary" href="{% url 'register' %}"
-                                                  role="button">View
-                                                details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-
-                                        <div class="caption">
-                                          <h2>Contact Us</h2>
-                                          <p>If you want to know any specific details. Be sure to contact us using the link below on Albuquerque website.</p>
-                                          <p><a class="btn btn-primary" href="{% url 'contact' %}"
-                                                  role="button">View
-                                                detail &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="thumbnail">
-
-                                        <div class="caption">
-                                          <h2>FAQ</h2>
-                                          <p>If you want to read the most frequently asked questions. Be sure to click on the link below on Albuquerque website.</p>
-
-                                            <p><a class="btn btn-primary" href="{%  url 'FAQ' %}"
-                                                  role="button">View
-                                                details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
- {% elif user.is_authenticated and user.role == 2 %}
-               <h1>Hi I am Assistant </h1>
-
-
- {% elif user.is_authenticated and user.role == 3 %}
+ {% if user.is_authenticated and user.role == 3 %}
 <article class="hero bg text-center">
  <div class="hero_img"></div>
   <div class="content">
@@ -155,9 +112,9 @@
                                     <div class="thumbnail">
 
                                         <div class="caption">
-                                            <h2>Select Park</h2>
-                                            <p>If you want to know any specific details. Be sure to contact us using the link below on Albuquerque website.</p>
-                                            <p><a class="btn btn-primary" href="{% url 'parkAvail:prop_list' %}"
+                                            <h2>View Profile</h2>
+                                            <p>If you want to view your profile please click the link below with Albuquerque.</p>
+                                            <p><a class="btn btn-primary" href="{% url 'profile_view' pk=user.pk %}"
                                                   role="button">View
                                                 details &raquo;</a></p>
                                         </div>
@@ -169,7 +126,7 @@
 
                                         <div class="caption">
                                           <h2>Field Condition</h2>
-                                          <p>The Groundskeeper position is responsible for cutting grass, trimming grave, checking field condition. Click on the link below for details</p>
+                                          <p>Responsible for checking field condition after use. Click on the link below for details</p>
 
                                             <p><a class="btn btn-primary" href="{%  url 'GroundKeeper:FieldCondition_list' %}"
                                                   role="button">View
@@ -182,6 +139,136 @@
                         </div>
                     </div>
                 </div>
+                {% elif user.is_authenticated and user.role == 4 %}
+
+     <article class="hero bg text-center">
+ <div class="hero_img"></div>
+  <div class="content">
+    <div class="full">
+      <h1><strong> ALBUQUERQUE ATHLETIC FIELD RESERVATION SYSTEM </strong> </h1>
+    </div>
+  </div>
+</article>
+      <div class="row">
+{#  <h1> Employee Dashboard </h1>#}
+{#    <div class="col-md-12">#}
+{#        <div class="links">#}
+            <!-- Example row of columns -->
+
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                            <h2>Add Park</h2>
+                            <p>If you want to create new park please click the link below with Albuquerque.</p>
+                            <p><a class="btn btn-primary" href="{% url 'park_new' %}"
+                                  role="button">View
+                                details &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                          <h2>Add Property</h2>
+                          <p>If you want to create new Property please click the link below with Albuquerque.</p>
+                          <p><a class="btn btn-primary" href="{% url 'property_new' %}"
+                                  role="button">View
+                                detail &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                          <h2>Manage Park</h2>
+                          <p>If you want to manage the park and properties please click the link below. </p>
+
+                            <p><a class="btn btn-primary" href="{%  url 'park_list' %}"
+                                  role="button">View
+                                details &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+
+                        <div class="caption">
+                          <h2>View Profile</h2>
+                          <p>If you want to view your profile please click the link below with Albuquerque.</p>
+
+                            <p><a class="btn btn-primary" href="{%  url 'profile_view' pk=user.pk %}"
+                                  role="button">View
+                                details &raquo;</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+                              {% else %}
+                              <article class="hero bg text-center">
+                              <div class="hero_img"></div>
+                              <div class="content">
+                                <div class="full">
+                                  <h1><strong> ALBUQUERQUE ATHLETIC FIELD RESERVATION SYSTEM </strong> </h1>
+                                  <h1>Know Where to find Parks Near You</h1>
+                                  <h2>Get to Know Properties <br>Reservations online</h2>
+                                  <p><a class="btn btn-primary" href="{% url 'parkAvail:prop_list' %}" role="button">Find Parks</a></p>
+                                   </div>
+                              </article>
+
+                                        <div class="content container">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="links">
+                                                        <!-- Example row of columns -->
+
+                                                            <div class="col-md-4">
+                                                                <div class="thumbnail">
+
+                                                                    <div class="caption">
+                                                                        <h2>Create account</h2>
+                                                                        <p>If you want to create another account Create account page. Be sure to enter another email address with Albuquerque.</p>
+                                                                        <p><a class="btn btn-primary" href="{% url 'register' %}"
+                                                                              role="button">View
+                                                                            details &raquo;</a></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="thumbnail">
+
+                                                                    <div class="caption">
+                                                                      <h2>Contact Us</h2>
+                                                                      <p>If you want to know any specific details. Be sure to contact us using the link below on Albuquerque website.</p>
+                                                                      <p><a class="btn btn-primary" href="{% url 'contact' %}"
+                                                                              role="button">View
+                                                                            detail &raquo;</a></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="thumbnail">
+
+                                                                    <div class="caption">
+                                                                      <h2>FAQ</h2>
+                                                                      <p>If you want to read the most frequently asked questions. Be sure to click on the link below on Albuquerque website.</p>
+
+                                                                        <p><a class="btn btn-primary" href="{%  url 'FAQ' %}"
+                                                                              role="button">View
+                                                                            details &raquo;</a></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
                 {% endif %}

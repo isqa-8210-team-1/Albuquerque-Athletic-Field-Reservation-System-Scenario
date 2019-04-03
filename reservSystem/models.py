@@ -10,18 +10,17 @@ from datetime import *
 class Event(models.Model):
     prop_name = models.ForeignKey(Prop, related_name='prop_name', on_delete=models.CASCADE)
     day = models.DateField(u'Day of the event', help_text=u'Day of the event')
-    #start_time = models.TimeField(u'Starting time', help_text=u'Starting time')
-    # end_time = models.TimeField(u'Final time', help_text=u'Final time')
-
     notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
+    Team_Name = models.CharField(u'Team Name', help_text=u'Team name', blank=True, null=True, max_length=255)
+    Size_of_the_team = models.CharField(u'size of the team', help_text=u'Capacity', blank=True, null=True, max_length=3)
+    Name_of_the_organization = models.CharField(u'Name of the Organization', help_text=u'Organization name', max_length=100,blank=True,null=True)
 
     TimeSlot = (
-        ('M1', '6.00 A.M to 8.00 A.M'),
-        ('M2', '8.15 A.M to 10.15 A.M'),
-        ('M3', '10.30 A.M to 12.30 P.M'),
-        ('E1', '3.00 P.M to 5.00 P.M'),
-        ('E2', '5.15 P.M to 7.15 P.M'),
-
+        ('M1', 'M1- 6.00 A.M to 8.00 A.M'),
+        ('M2', 'M2- 8.15 A.M to 10.15 A.M'),
+        ('M3', 'M3- 10.30 A.M to 12.30 P.M'),
+        ('E1', 'E1- 3.00 P.M to 5.00 P.M'),
+        ('E2', 'E2- 5.15 P.M to 7.15 P.M'),
     )
 
     timeslot = models.CharField(
@@ -48,42 +47,20 @@ class Event(models.Model):
         url = reverse('reservSystem:prop_event_edit', args=(self.id,))
         return f'<font color="red"><a href="{url}"> {self.timeslot} </a></font>'
 
-
-#    def get_absolute_url(self):
-#           return reverse('parkAvail:prop_day',
-#                           args=[self.id])
-
-"""""    def check_overlap(self, fixed_start, fixed_end, new_start, new_end):
+    def check_overlap(self, fixed_timeslot, new_timeslot, new_prop, fixed_prop):
         overlap = False
-        if new_start == fixed_end or new_end == fixed_start:  # edge case
-            overlap = False
-        elif (new_start >= fixed_start and new_start <= fixed_end) or (
-                new_end >= fixed_start and new_end <= fixed_end):  # innner limits
+        if new_timeslot == fixed_timeslot and new_prop == fixed_prop:  # edge case
             overlap = True
-        elif new_start <= fixed_start and new_end >= fixed_end:  # outter limits
-            overlap = True
-
         return overlap
 
-
-
-
     def clean(self):
-        if self.end_time <= self.start_time:
-            raise ValidationError('Ending times must after starting times')
-        if self.day < date.today():
-            raise ValidationError('Bookings cannot be done for previous dates')
+        #if self.day < date.today(): # checks for bookings done with previous dates
+        #    raise ValidationError('Bookings cannot be done for previous dates')
 
         events = Event.objects.filter(day=self.day)
         if events.exists():
             for event in events:
-                if self.check_overlap(event.start_time, event.end_time, self.start_time, self.end_time):
+                if self.check_overlap(event.timeslot, self.timeslot, event.prop_name, self.prop_name):
                     raise ValidationError(
                         'There is an overlap with another event: ' + str(event.day) + ', ' + str(
-                            event.start_time) + '-' + str(event.end_time))
-
-"""
-
-
-
-
+                            event.timeslot))
