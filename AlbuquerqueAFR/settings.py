@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'AlbuquerqueAFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dceg93kaijoh20',
-        'USER': 'wrfjblibpzbqss',
-        'PASSWORD': 'bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737',
-        'HOST': 'postgres://wrfjblibpzbqss:bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737@ec2-23-23-241-119.compute-1.amazonaws.com:5432/dceg93kaijoh20',
+        'NAME': 'd170nl5cqj0kgn',
+        'USER': 'rjxzxarntgsqje',
+        'PASSWORD': '191ae212f4584f18c33120452270165043d8ee467e9cb2778897f39f79ecbe05',
+        'HOST': 'postgres://rjxzxarntgsqje:191ae212f4584f18c33120452270165043d8ee467e9cb2778897f39f79ecbe05@ec2-184-73-210-189.compute-1.amazonaws.com:5432/d170nl5cqj0kgn',
         'PORT': '5432',
 
     }
