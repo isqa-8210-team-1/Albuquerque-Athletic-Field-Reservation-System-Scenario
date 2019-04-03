@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'AlbuquerqueAFR.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DDATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dceg93kaijoh20',
@@ -102,13 +102,16 @@ DDATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config()
+
+
 try:
     from local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-    DATABASES['default'] = dj_database_url.config()
+
     pass
 
 
