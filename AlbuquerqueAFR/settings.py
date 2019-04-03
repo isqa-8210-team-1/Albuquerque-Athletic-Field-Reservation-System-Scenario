@@ -33,7 +33,7 @@ AUTH_USER_MODEL = 'account.MyUser'
 
 LOGIN_REDIRECT_URL = '/home'
 
-LOGOUT_REDIRECT_URL = '/accounts/profile'
+LOGOUT_REDIRECT_URL = '/home'
 
 
 # Application definition
@@ -63,7 +63,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'AlbuquerqueAFR.urls'
@@ -93,28 +92,22 @@ WSGI_APPLICATION = 'AlbuquerqueAFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd170nl5cqj0kgn',
-        'USER': 'rjxzxarntgsqje',
-        'PASSWORD': '191ae212f4584f18c33120452270165043d8ee467e9cb2778897f39f79ecbe05',
-        'HOST': 'postgres://rjxzxarntgsqje:191ae212f4584f18c33120452270165043d8ee467e9cb2778897f39f79ecbe05@ec2-184-73-210-189.compute-1.amazonaws.com:5432/d170nl5cqj0kgn',
+        'NAME': 'dceg93kaijoh20',
+        'USER': 'wrfjblibpzbqss',
+        'PASSWORD': 'bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737',
+        'HOST': 'postgres://wrfjblibpzbqss:bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737@ec2-23-23-241-119.compute-1.amazonaws.com:5432/dceg93kaijoh20',
         'PORT': '5432',
 
     }
 }
+""""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+    }
+}
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] = dj_database_url.config()
-
-
-try:
-    from local_settings import *
-except ImportError:
-    # Update database configuration with $DATABASE_URL.
-
-    pass
-
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -161,8 +154,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),
 )
 
-
-
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
@@ -178,5 +169,28 @@ EMAIL_PORT = 2525
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+"""""
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config()
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+"""
+try:
+    from local_settings import *
+except ImportError:
+    # Update database configuration with $DATABASE_URL.
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+    DATABASES['default'] = dj_database_url.config()
+    pass
+
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
