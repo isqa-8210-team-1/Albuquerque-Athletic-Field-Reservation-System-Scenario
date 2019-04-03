@@ -186,7 +186,7 @@ DATABASES['default'].update(db_from_env)
 DATABASES['default'] = dj_database_url.config()
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
 
