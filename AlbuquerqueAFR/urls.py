@@ -27,7 +27,7 @@ urlpatterns = [
 
     path('', include('managePark.urls')),
     path('park/', include('parkAvail.urls', namespace='parkAvail')),
-    path('schedule/', include('reservSystem.urls', namespace='reservSystem')),
+    #path('schedule/', include('reservSystem.urls', namespace='reservSystem')),
     #path('', include('parkAvail.urls')),
 
 

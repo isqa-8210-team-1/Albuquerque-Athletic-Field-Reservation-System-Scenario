@@ -40,25 +40,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for fieldCondition in fieldConditions %}
-                <tr>
-                    <td>{{ fieldCondition.reservation_number }}</td>
-                    <td>{{ fieldCondition.park_name }}</td>
-                    <td>{{ fieldCondition.property_name }}</td>
-                    <td>{{ fieldCondition.Report_Time_Date }}</td>
-                    <td>{{ fieldCondition.Property_Status_Description }}</td>
-                    <td>{{ fieldCondition.Personnel_Time }}</td>
-                    <td>{{ fieldCondition.Expenses }}</td>
-                    <td>{{ fieldCondition.Status }}</td>
-                    <td>{{ fieldCondition.comments }}</td>
 
-                    <td><a href="{% url 'GroundKeeper:FieldCondition_edit' pk=fieldCondition.pk %}"  class="btn btn-warning">Update</a>
-
-
-
-
-                </tr>
-            {% endfor %}
             </tbody>
         </table>
 
