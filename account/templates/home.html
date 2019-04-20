@@ -4,6 +4,12 @@
 <html>
 <head>
   <style>
+
+ .thumbnail:hover {
+     background-color: #f0f0f0;
+     transform: scale(1.1);
+
+ }
     body{
        background: #f1f6fb;
     }
@@ -33,20 +39,18 @@
           opacity: 0.7;
           color: black;
           padding: 20px;
+
       }
       .btn-primary{
         background-color: #249d33;
         border-color: #249d33;
         padding: 5px 25px;
         font-size: 20px;
+          cursor: pointer;
       }
       .btn-primary:hover{
         background-color: #249d33;
         border-color: #249d33;
-      }
-      .thumbnail{
-        border-radius: 0px;
-        box-shadow: 0 2px 5px 0px;
       }
       .second {
         margin: 5% 10%;
@@ -67,6 +71,7 @@
         border-color: #249d33;
         padding: 5px 25px;
         font-size: 20px;
+
       }
       .btn-primary:hover{
         background-color: #249d33;
@@ -120,12 +125,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                                <div class="thumbnail">
 
+                                                    <div class="caption">
+                                                        <h2>Add Field Condition</h2>
+                                                        <p>If you want to create new Field Condition please click the link below with Albuquerque.</p>
+                                                        <p><a class="btn btn-primary" href="{% url 'GroundKeeper:FieldCondition_new' %}"
+                                                              role="button">View
+                                                            details &raquo;</a></p>
+                                                    </div>
+                                                </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="thumbnail">
 
                                         <div class="caption">
-                                          <h2>Field Condition</h2>
+                                          <h2>Manage Field</h2>
                                           <p>Responsible for checking field condition after use. Click on the link below for details</p>
 
                                             <p><a class="btn btn-primary" href="{%  url 'GroundKeeper:FieldCondition_list' %}"
@@ -139,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                {% elif user.is_authenticated and user.role == 4 %}
+                {% elif user.is_authenticated and user.role == 4 or user.role == 5 %}
 
      <article class="hero bg text-center">
  <div class="hero_img"></div>
@@ -150,10 +166,6 @@
   </div>
 </article>
       <div class="row">
-{#  <h1> Employee Dashboard </h1>#}
-{#    <div class="col-md-12">#}
-{#        <div class="links">#}
-            <!-- Example row of columns -->
 
                 <div class="col-md-3">
                     <div class="thumbnail">

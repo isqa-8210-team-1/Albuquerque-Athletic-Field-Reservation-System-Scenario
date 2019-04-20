@@ -18,6 +18,8 @@ from django.urls import path, include, re_path
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +34,6 @@ urlpatterns = [
     re_path(r'^accounts/profile/$', LoginView.as_view(template_name='authentication/login.html'), name="login"),
     re_path(r'^accounts/profile/logout/$', LogoutView.as_view(template_name='authentication/logout.html'),
             LogoutView.next_page, name="logout"),
-
 ]
 
 if settings.DEBUG:

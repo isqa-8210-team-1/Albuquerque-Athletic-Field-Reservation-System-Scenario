@@ -1,46 +1,74 @@
-
 from django.db import models
 from django.utils import timezone
 from parkAvail.models import Prop, Park
+from datetime import datetime
 
 
 class FieldCondition(models.Model):
     reservation_number = models.CharField(max_length=50)
 
-    property_name = models.ForeignKey(Prop, related_name='properties', on_delete=models.CASCADE)
-    # park_address=models.ForeignKey(Park, related_name='parkaddress', on_delete=models.CASCADE)
-    # booked_date = models.ForeignKey(Prop, related_name='day', on_delete=models.CASCADE)
+    park_name= models.ForeignKey(Park, verbose_name='park_name', default='1', on_delete=models.SET_DEFAULT)
+    property_name = models.ForeignKey(Prop, verbose_name='property_name', default='1',on_delete=models.SET_DEFAULT)
 
-    TimeSlot = (
-        ('M1', '6.00 A.M to 8.00 A.M'),
-        ('M2', '8.15 A.M to 10.15 A.M'),
-        ('M3', '10.30 A.M to 12.30 P.M'),
-        ('E1', '3.00 P.M to 5.00 P.M'),
-        ('E2', '5.15 P.M to 7.15 P.M'),
+    Report_Time_Date = models.DateTimeField(default=datetime.now(), help_text='Report Time&Date')
 
+    Property_Status_Description = models.TextField(max_length=10)
+
+
+    personnel_time = (
+        ('1hr', '1hr- Good'),
+        ('2hrs', '2hrs- Better'),
+        ('5hrs', '5hrs- Awful'),
     )
 
-    timeslot = models.CharField(
-        max_length=3,
-        choices=TimeSlot,
+    Personnel_Time = models.CharField(
+        max_length=20,
+        choices=personnel_time,
         blank=True,
-        default='m',
+        default='--',
+        help_text='Personnel Time Spent',
     )
-    created_date = models.DateTimeField()
-    updated_date = models.DateTimeField(auto_now_add=True)
 
-    comments = models.TextField(max_length=200,default='', blank=True)
+    expenses = (
+        ('Good', '$2'),
+        ('Better', '$10'),
+        ('Awful', '$50'),
+    )
 
+    Expenses = models.CharField(
+        max_length=20,
+        choices=expenses,
+        blank=True,
+        default='--',
+        help_text='Expenses',
+    )
+
+    status = (
+        ('1','Pending'),
+        ('2','Successful'),
+    )
+
+    Status = models.CharField(
+        max_length=20,
+        choices=status,
+        blank=True,
+        default='1',
+        help_text='Payment status',
+    )
+    comments = models.TextField(max_length=200, default='', blank=True)
 
     def created(self):
-        self.created_date = timezone.now()
+        self.Report_Time_Date = timezone.now()
         self.save()
 
     def updated(self):
         self.updated_date = timezone.now()
         self.save()
 
+    class Meta:
+        verbose_name_plural="Field Condition"
+
     def __str__(self):
-        return str(self.reservation_number)
+        return self.reservation_number
 
 

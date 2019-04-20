@@ -31,4 +31,5 @@ class EventForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(EventForm, self).__init__(*args, **kwargs)
         # input_formats to parse HTML5 datetime-local input to datetime field
-        self.fields['day'].input_formats = ('%m/%d/%Y',)
+        # self.fields['day'].input_formats = ('%m/%d/%Y',)
+        self.fields['day'].input_formats = ['%Y-%m-%d']

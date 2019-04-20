@@ -13,7 +13,8 @@ class Event(models.Model):
     notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
     Team_Name = models.CharField(u'Team Name', help_text=u'Team name', blank=True, null=True, max_length=255)
     Size_of_the_team = models.CharField(u'size of the team', help_text=u'Capacity', blank=True, null=True, max_length=3)
-    Name_of_the_organization = models.CharField(u'Name of the Organization', help_text=u'Organization name', max_length=100,blank=True,null=True)
+    Name_of_the_organization = models.CharField(u'Name of the Organization', help_text=u'Organization name',
+                                                max_length=100, blank=True, null=True)
 
     TimeSlot = (
         ('M1', 'M1- 6.00 A.M to 8.00 A.M'),
@@ -47,6 +48,11 @@ class Event(models.Model):
         url = reverse('reservSystem:prop_event_edit', args=(self.id,))
         return f'<font color="red"><a href="{url}"> {self.timeslot} </a></font>'
 
+    @property
+    def get_available_slot(self):
+        slotname = {self.TimeSlot}
+        return slotname
+
     def check_overlap(self, fixed_timeslot, new_timeslot, new_prop, fixed_prop):
         overlap = False
         if new_timeslot == fixed_timeslot and new_prop == fixed_prop:  # edge case
@@ -54,8 +60,8 @@ class Event(models.Model):
         return overlap
 
     def clean(self):
-        #if self.day < date.today(): # checks for bookings done with previous dates
-        #    raise ValidationError('Bookings cannot be done for previous dates')
+        if self.day < date.today(): # checks for bookings done with previous dates
+            raise ValidationError('Bookings cannot be done for previous dates')
 
         events = Event.objects.filter(day=self.day)
         if events.exists():

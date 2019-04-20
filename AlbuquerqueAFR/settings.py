@@ -33,25 +33,26 @@ AUTH_USER_MODEL = 'account.MyUser'
 
 LOGIN_REDIRECT_URL = '/home'
 
-LOGOUT_REDIRECT_URL = '/home'
+LOGOUT_REDIRECT_URL = '/accounts/profile'
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'django.contrib.admin',
     'managePark',
     'parkAvail',
     'reservSystem',
     'payment',
     'crispy_forms',
     'GroundKeeper',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'AlbuquerqueAFR.urls'
@@ -92,22 +94,19 @@ WSGI_APPLICATION = 'AlbuquerqueAFR.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dceg93kaijoh20',
-        'USER': 'wrfjblibpzbqss',
-        'PASSWORD': 'bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737',
-        'HOST': 'postgres://wrfjblibpzbqss:bf22838b382e170261b720be3c397cb09653401aa8e8f717dad83f35bd868737@ec2-23-23-241-119.compute-1.amazonaws.com:5432/dceg93kaijoh20',
-        'PORT': '5432',
-
-    }
-}
-""""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
     }
 }
 
-"""
+try:
+    from local_settings import *
+except ImportError:
+    # Update database configuration with $DATABASE_URL.
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+    DATABASES['default'] = dj_database_url.config()
+    pass
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -146,53 +145,49 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+# Amazon S3
+
+AWS_ACCESS_KEY_ID = 'AKIAJ3VOBXQGFA54PI5Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'afr.team1'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+#
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),
-)
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),)
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Amazon S3
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '8210projectT1/AlbuquerqueAFR/static'),
+]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+#
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'YOUR HOST USER'
-EMAIL_HOST_PASSWORD = 'YOUR HOST PASSWORD'
-EMAIL_PORT = 2525
-#EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'YOUR HOST USER'
+# EMAIL_HOST_PASSWORD = 'YOUR HOST PASSWORD'
+# EMAIL_PORT = 2525
+# #EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'awesomemsdteam1'
+EMAIL_HOST_PASSWORD = 'msdteam1'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-"""""
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] = dj_database_url.config()
-
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-"""
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] = dj_database_url.config()
-
-try:
-    from .local_settings import *
-except ImportError:
-    # Update database configuration with $DATABASE_URL.
-
-    pass
-
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-

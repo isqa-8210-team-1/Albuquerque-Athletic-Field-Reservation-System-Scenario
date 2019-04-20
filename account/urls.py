@@ -25,6 +25,4 @@ urlpatterns = [
     path('FAQ/', views.FAQ, name='FAQ'),
     # path('admin/', admin.site.urls),
     path('', include('GroundKeeper.urls')),
-    # path('FieldCondition_list', views.FieldCondition_list, name='FieldCondition_list'),
-    # path('FieldCondition_list/<int:pk>/edit/', views.FieldCondition_edit, name='FieldCondition_edit'),
 ]

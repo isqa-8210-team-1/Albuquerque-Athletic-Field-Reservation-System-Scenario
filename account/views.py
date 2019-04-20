@@ -1,9 +1,12 @@
+from django.contrib.auth import update_session_auth_hash
+from django.core.checks import messages
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import MyUser
 from django.http import HttpResponse
 from django.views.generic import TemplateView, View, ListView
 from .forms import *
 from django.contrib.auth.decorators import login_required
+
 
 
 def HomePageView(request):
@@ -74,7 +77,6 @@ def contact(request):
 
     return render(request, 'registration/contact.html', {'form': form_class})
 
+
 def FAQ(request):
  return render(request, 'registration/FAQ.html', {'registration': FAQ})
-
-

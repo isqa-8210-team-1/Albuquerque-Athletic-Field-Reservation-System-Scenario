@@ -26,9 +26,13 @@
             <thead>
             <tr class="bg-info">
                 <th>Reservation Number</th>
+                <th>Park Name</th>
                 <th>Property Name</th>
-                <th>Timeslot</th>
-                <th>Created Date</th>
+                <th>Report_Time_Date</th>
+                <th>Property_Status_Description</th>
+                <th>Personnel_Time</th>
+                <th>Expenses</th>
+                <th>Status</th>
                 <th>Comments</th>
 
 
@@ -39,12 +43,16 @@
             {% for fieldCondition in fieldConditions %}
                 <tr>
                     <td>{{ fieldCondition.reservation_number }}</td>
+                    <td>{{ fieldCondition.park_name }}</td>
                     <td>{{ fieldCondition.property_name }}</td>
-                    <td>{{ fieldCondition.timeslot }}</td>
-                    <td>{{ fieldCondition.created_date }}</td>
+                    <td>{{ fieldCondition.Report_Time_Date }}</td>
+                    <td>{{ fieldCondition.Property_Status_Description }}</td>
+                    <td>{{ fieldCondition.Personnel_Time }}</td>
+                    <td>{{ fieldCondition.Expenses }}</td>
+                    <td>{{ fieldCondition.Status }}</td>
                     <td>{{ fieldCondition.comments }}</td>
 
-                    <td><a href="{% url 'GroundKeeper:FieldCondition_edit' pk=fieldCondition.pk %}"  class="btn btn-warning">Comment</a>
+                    <td><a href="{% url 'GroundKeeper:FieldCondition_edit' pk=fieldCondition.pk %}"  class="btn btn-warning">Update</a>
 
 
 

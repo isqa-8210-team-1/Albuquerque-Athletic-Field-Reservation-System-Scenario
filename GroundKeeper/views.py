@@ -9,9 +9,25 @@ from django.views.generic import TemplateView, View, ListView
 
 
 def FieldCondition_list(request):
-    fieldCondition = FieldCondition.objects.filter(created_date__lte=timezone.now())
+    fieldCondition = FieldCondition.objects.filter(Report_Time_Date__lte=timezone.now())
     return render(request, 'registration/FieldCondition.html',
                  {'fieldConditions': fieldCondition})
+
+@login_required
+def FieldCondition_new(request):
+   if request.method == "POST":
+       form = FieldConditionForm(request.POST)
+       if form.is_valid():
+           field = form.save(commit=False)
+           field.created_date = timezone.now()
+           field.save()
+           action = "edited"
+           print(action)
+           return redirect('/FieldCondition_list')
+   else:
+       form = FieldConditionForm()
+   return render(request, 'registration/FieldCondition_Add.html', {'form': form})
+
 
 @login_required
 def FieldCondition_edit(request, pk):
@@ -25,7 +41,6 @@ def FieldCondition_edit(request, pk):
             action = "edited"
             print(action)
             return redirect('/FieldCondition_list')
-            # return render(request, 'registration/FieldCondition.html', {'field_form': field, 'action': action})
     else:
         # edit
         form = FieldConditionForm(instance=field)

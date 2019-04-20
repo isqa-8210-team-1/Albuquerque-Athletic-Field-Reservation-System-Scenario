@@ -7,6 +7,8 @@ from django.views import generic
 from django.utils.safestring import mark_safe
 from datetime import *
 import calendar
+from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -20,7 +22,23 @@ def prop_event(request, event_id=None):
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
         form.save()
-        return render(request, 'calendar/reservation.html', {'pk': instance.id})
+        renter_email = request.user.email
+        cd = form.cleaned_data
+        prop_name = str(cd["prop_name"])
+        day = str(cd['day'])
+        timeslot = str(cd['timeslot'])
+        team_name = str(cd['Team_Name'])
+        organization = str(cd['Name_of_the_organization'])
+
+        send_mail(
+            'Event Reserved for: ' + prop_name,
+            'Reservation details' + '\n\n' + 'Property Name: ' + prop_name + '\n' + 'Day reserved: ' + day + '\n' +
+            'Time: ' + timeslot + '\n' + 'Team Name: ' + team_name + '\n' + 'Organization: ' + organization,
+            'awesomemsdteam1@gmail.com',
+            [renter_email],
+            fail_silently=False,
+        )
+        return render(request, 'calendar/reservation.html', {'pk': instance.id, 'renter': renter_email})
     return render(request, 'calendar/prop_event.html', {'form': form})
 
 
@@ -33,7 +51,7 @@ class CalendarView(generic.ListView):
 
         # use today's date for the calendar
         d = get_date(self.request.GET.get('month', None))
-        prop_pk= self.request.GET.get('prop_pk', None)
+        prop_pk = self.request.GET.get('prop_pk', None)
         prop = get_object_or_404(Prop, pk=prop_pk)
 
         context['prev_month'] = prev_month(d)
