@@ -167,7 +167,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Amazon S3
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '8210projectT1/AlbuquerqueAFR/static'),
+    os.path.join(BASE_DIR, '/static'),
 ]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
