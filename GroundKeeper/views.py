@@ -15,18 +15,18 @@ def FieldCondition_list(request):
 
 @login_required
 def FieldCondition_new(request):
-    if request.method == "POST":
-        form = FieldConditionForm(request.POST)
-        if form.is_valid():
-            field = form.save(commit=False)
-            field.created_date = timezone.now()
-            field.save()
-            action = "edited"
-            print(action)
-            return redirect('/FieldCondition_list')
-    else:
-        form = FieldConditionForm()
-    return render(request, 'registration/FieldCondition_Add.html', {'form': form})
+   if request.method == "POST":
+       form = FieldConditionForm(request.POST)
+       if form.is_valid():
+           field = form.save(commit=False)
+           field.created_date = timezone.now()
+           field.save()
+           action = "edited"
+           print(action)
+           return redirect('/FieldCondition_list')
+   else:
+       form = FieldConditionForm()
+   return render(request, 'registration/FieldCondition_Add.html', {'form': form})
 
 
 @login_required

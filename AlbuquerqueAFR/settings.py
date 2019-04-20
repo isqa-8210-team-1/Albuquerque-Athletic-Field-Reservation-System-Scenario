@@ -98,7 +98,7 @@ DATABASES = {
 }
 
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
     db_from_env = dj_database_url.config(conn_max_age=500)
@@ -147,14 +147,16 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Amazon S3
 
-AWS_ACCESS_KEY_ID = 'AKIAJEZM5EWX3TJD427Q'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAJBPIPBRQP53IBJHQ'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'afr.team1'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
+
+AWS_DEFAULT_ACL = None
 #
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -166,22 +168,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Amazon S3
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-]
-# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+)
+# 8210projectT1/AlbuquerqueAFR/
+
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 #
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# EMAIL_HOST = 'smtp.mailtrap.io'
-# EMAIL_HOST_USER = 'YOUR HOST USER'
-# EMAIL_HOST_PASSWORD = 'YOUR HOST PASSWORD'
-# EMAIL_PORT = 2525
-# #EMAIL_USE_TLS = True
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'awesomemsdteam1'
@@ -193,3 +193,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
