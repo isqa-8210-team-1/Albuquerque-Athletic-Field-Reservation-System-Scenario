@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0002_auto_20190407_0010.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0003_auto_20190407_0024.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0004_auto_20190407_0036.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0005_auto_20190407_1800.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0006_auto_20190407_1839.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0007_auto_20190407_1848.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0008_auto_20190407_1856.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0009_auto_20190407_1933.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0010_auto_20190409_2230.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0011_auto_20190409_2231.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0012_auto_20190409_2233.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0013_auto_20190418_1121.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/migrations/0014_auto_20190419_2045.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroundKeeper/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/GroundKeeper/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reservSystem/migrations/0001_initial.py" beforeDir="false" />
-    </list>
+    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +170,7 @@
       <find>propertys</find>
       <find>parks</find>
       <find>media</find>
+      <find>name_id</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -340,9 +324,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19709209" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19709209" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -356,7 +339,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080776" side_tool="true" weight="0.75342464" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49919224" visible="true" weight="0.40684932" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49919224" visible="true" weight="0.40684932" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
