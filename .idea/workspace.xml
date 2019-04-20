@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/AlbuquerqueAFR/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,20 +72,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="100" column="10" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
+            <state relative-caret-position="147">
+              <caret line="105" column="51" lean-forward="true" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/account/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="76" column="73" selection-start-line="76" selection-start-column="61" selection-end-line="76" selection-end-column="73" />
+            <state relative-caret-position="1350">
+              <caret line="90" column="36" lean-forward="true" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -223,6 +221,17 @@
             <path>
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Albuquerque-Athletic-Field-Reservation-System-Scenario" type="b2602c69:ProjectViewProjectNode" />
@@ -562,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="76" column="73" selection-start-line="76" selection-start-column="61" selection-end-line="76" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -607,8 +609,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="100" column="10" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="10" />
+        <state relative-caret-position="147">
+          <caret line="105" column="51" lean-forward="true" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="36" lean-forward="true" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
         </state>
       </provider>
     </entry>
