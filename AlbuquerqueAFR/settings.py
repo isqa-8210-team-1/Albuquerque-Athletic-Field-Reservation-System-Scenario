@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'reservSystem',
     'payment',
     'crispy_forms',
-    'GroundKeeper',
+    # 'GroundKeeper',
     'storages',
 ]
 
@@ -98,7 +98,7 @@ DATABASES = {
 }
 
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
     db_from_env = dj_database_url.config(conn_max_age=500)
