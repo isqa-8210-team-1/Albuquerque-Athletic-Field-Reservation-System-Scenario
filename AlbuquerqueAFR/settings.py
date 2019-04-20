@@ -147,8 +147,8 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Amazon S3
 
-AWS_ACCESS_KEY_ID = 'AKIAJ3VOBXQGFA54PI5Q'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAICN2OLDV23TLCXPA'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'afr.team1'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
@@ -167,7 +167,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Amazon S3
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '../static'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
