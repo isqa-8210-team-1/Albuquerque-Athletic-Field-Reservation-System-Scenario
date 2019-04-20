@@ -24,5 +24,5 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('FAQ/', views.FAQ, name='FAQ'),
     # path('admin/', admin.site.urls),
-    # path('', include('GroundKeeper.urls')),
+    path('', include('GroundKeeper.urls')),
 ]

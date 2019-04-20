@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'reservSystem',
     'payment',
     'crispy_forms',
-    # 'GroundKeeper',
+    'GroundKeeper',
     'storages',
 ]
 

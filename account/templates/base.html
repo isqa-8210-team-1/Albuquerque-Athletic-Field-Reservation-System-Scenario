@@ -74,8 +74,9 @@
                                Field Condition <span class="caret"></span>
                             </a>
                                 <ul class="dropdown-menu" role="menu">
-                               </ul>
-
+                                    <li><a href="{% url 'GroundKeeper:FieldCondition_new' %}">Add Field Condition</a></li>
+                                    <li><a href="{% url 'GroundKeeper:FieldCondition_list' %}">Manage Field Condition</a></li>
+                                </ul>
                             </li>
                             {% else %}
                             {% if user.role == 4 or user.role == 5 %}
@@ -87,7 +88,7 @@
                                     <li><a href="{% url 'park_new' %}">Add Park</a></li>
                                     <li><a href="{% url 'property_new' %}">Add Property</a></li>
                                     <li><a href="{% url 'park_list' %}">Manage Park</a></li>
-
+                                    <li><a href="{% url 'GroundKeeper:FieldCondition_list' %}">Check FieldCondition</a></li>
                                 </ul>
                             </li>
                               {% endif %}
