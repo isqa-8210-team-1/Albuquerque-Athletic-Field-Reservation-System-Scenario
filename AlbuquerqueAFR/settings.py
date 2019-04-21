@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'managePark',
     'parkAvail',
-    # 'reservSystem',
+    'reservSystem',
     'payment',
     'crispy_forms',
     'GroundKeeper',

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row">
+        <h2><br>Reserve a property<br></h2>
+  </div>
+  {% if user_form.errors %}
+  <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Error!</div>
+                    <div class="panel-body">
+                       <p><font color="red">
+
+                            {% if form.errors %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div class="alert alert-danger">
+                                            {{ field.label }} <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        {{ field.label }} <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                       </font>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+   </div>
+   {% endif %}
+   <div class="row">
+     <div class="col-md-12">
+         <div class="col-md-4">
+                <form method="post">
+                  {% csrf_token %}
+                    {{ form.prop_name|as_crispy_field }}
+                    {{form.Name_of_the_organization | as_crispy_field}}
+                    {{form.Team_Name | as_crispy_field}}
+                    {{form.Size_of_the_team | as_crispy_field}}
+                    <input class="form-control" id="day" name="day" placeholder="MM/DD/YYYY" type="date"/>
+                    {{ form.timeslot|as_crispy_field }}
+
+                    <button type="submit" class="btn btn-info right"> Submit </button>
+
+                </form>
+         </div>
+         <div class="col-md-8"></div>
+      </div>
+     </div>
+    <!-- Include jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <script>
+        $(document).ready(function(){
+            var date_input=$('input[name="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+        })
+    </script>
+{% endblock %}

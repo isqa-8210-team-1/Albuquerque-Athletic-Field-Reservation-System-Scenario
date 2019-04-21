@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <head>
+
+    <style>
+     .thumbnail{
+        border-radius: 0px;
+        box-shadow: 0 2px 5px 0px;
+      }
+      .row h1{
+        margin: 40px 20px;
+      }
+      .row{
+        margin: 40px 20px;
+          height: 50px;
+      }
+        .btn-primary{
+        background-color: #249d33;
+        border-color: #249d33;
+        padding: 5px 25px;
+        font-size: 20px;
+
+      }
+      .btn-primary:hover{
+        background-color: #249d33;
+        border-color: #249d33;
+
+      }
+         body {
+          background-image: url("https://chsaanow.com/wp-content/uploads/2013/07/20130730_CHSAA_DENVER_EAST_127.jpg");
+          background-repeat: no-repeat;
+          }
+        .caption {
+           background-color: #ffdddd;
+            border-left: 6px solid #f44336;
+        }
+    </style>
+
+    </head>
+
+     <div class="content container">
+               <div class="row">
+                                <div class="col-md-12">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+<strong> Thank you !! Your Reservation has been confirmed!! <br> <br>
+    Please check your email {{ renter }} for details !!! </strong>
+                                        </div>
+                                    </div>
+                                </div>
+               </div>
+     </div>
+
+{% endblock %}
