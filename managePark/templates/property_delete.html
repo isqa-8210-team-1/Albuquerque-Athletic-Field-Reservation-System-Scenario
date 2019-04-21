@@ -1,0 +1,13 @@
+{% block body_block %}
+    <div class="container">
+   <h1>Delete {{ property.name }}?</h1>
+
+   <form method="post">
+       {% csrf_token %}
+       <input type="submit" class="btn btn-danger" value="Delete">
+       <a href="{% url 'property' pk=property.property_number %} ">Cancel</a>
+
+   </form>
+    </div>
+
+{% endblock %}

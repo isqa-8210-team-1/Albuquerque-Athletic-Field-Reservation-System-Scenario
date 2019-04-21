@@ -56,7 +56,7 @@
                          class="btn btn-danger">Delete</a>
                 </td>
 
-                <td><a href="" class="btn btn-primary">View Properties</a>
+                <td><a href="{% url 'property' pk=park.pk %}" class="btn btn-primary">View Properties</a>
             </tr>
         {% endfor %}
         </tbody>

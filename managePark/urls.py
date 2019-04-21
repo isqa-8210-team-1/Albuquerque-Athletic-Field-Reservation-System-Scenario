@@ -8,6 +8,7 @@ urlpatterns = [
     path('property_new', views.property_new, name='property_new'),
     path('park/<int:pk>/edit/', views.park_edit, name='park_edit'),
     path('park/<int:pk>/delete/', views.park_delete, name='park_delete'),
-    path('backend_dashboard', views.backend_dashboard, name='backend_dashboard'),
-
+    path('park/<int:pk>/property/', views.property, name='property'),
+    path('<int:pp>/property/<int:pk>/edit/', views.property_edit, name='property_edit'),
+    path('<int:pp>/property/<int:pk>/delete/', views.property_delete, name='property_delete'),
 ]

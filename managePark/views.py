@@ -10,10 +10,6 @@ def park_list(request):
                  {'parks': park})
 
 
-def backend_dashboard(request):
-    return render(request, 'backend_dashboard.html')
-
-
 def park_new(request):
    if request.method == "POST":
        form = ParkForm(request.POST)
@@ -58,11 +54,47 @@ def property_new(request):
        form = PropertyForm(request.POST)
        if form.is_valid():
            property = form.save(commit=False)
-           property.created_date = timezone.now()
+           property.created = timezone.now()
            property.save()
-           properties = Property.objects.filter(created_date__lte=timezone.now())
-           return render(request, 'property_list.html',
+           property = Prop.objects.filter(created__lte=timezone.now())
+           return render(request, 'property.html',
                          {'properties': property})
    else:
        form = PropertyForm()
    return render(request, 'property_new.html', {'form': form})
+
+def property(request, pk):
+    parks = Park.objects.filter(created_date__lte=timezone.now())
+    if pk > 0 :
+        park = get_object_or_404(Park, pk=pk)
+        properties = Prop.objects.filter(park_under=pk)
+    else:
+        properties = Prop.objects.filter(created__lte=timezone.now())
+
+    return render(request, 'property.html', {'parks': parks,
+                                            'properties': properties
+                                        })
+
+def property_edit(request, pk, pp):
+   park = get_object_or_404(Prop, pk=pk)
+   if request.method == "POST":
+       # update
+       form = PropertyForm(request.POST, instance=park)
+       if form.is_valid():
+           property = form.save(commit=False)
+           property.updated_date = timezone.now()
+           property.save()
+           property = Prop.objects.filter(park_under=pp)
+           return render(request, 'property.html',
+                         {'properties': property})
+   else:
+        # edit
+       form = PropertyForm(instance=park)
+   return render(request, 'property_edit.html', {'form': form})
+
+def property_delete(request, pk, pp):
+    Property = get_object_or_404(Prop, pk=pk)
+    Property.delete()
+    properties = Prop.objects.filter(park_under=pp)
+    return render(request, 'property.html',
+                  {'properties': properties})

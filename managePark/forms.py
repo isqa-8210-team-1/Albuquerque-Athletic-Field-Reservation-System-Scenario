@@ -14,4 +14,4 @@ class ParkForm(forms.ModelForm):
 class PropertyForm(forms.ModelForm):
     class Meta:
         model = Prop
-        fields = ('park_under', 'slug', 'name', 'property_description', 'property_guest_capacity', 'location_in_park')
+        fields = ('park_under', 'slug', 'name', 'image', 'property_description', 'property_guest_capacity', 'location_in_park')
