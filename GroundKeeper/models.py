@@ -7,7 +7,7 @@ from datetime import datetime
 class FieldCondition(models.Model):
     reservation_number = models.CharField(max_length=50)
 
-    park_name= models.ForeignKey(Park, verbose_name='park_name', default='1', on_delete=models.SET_DEFAULT)
+    park_name = models.ForeignKey(Park, verbose_name='park_name', default='1', on_delete=models.SET_DEFAULT)
     property_name = models.ForeignKey(Prop, verbose_name='property_name', default='1',on_delete=models.SET_DEFAULT)
 
     Report_Time_Date = models.DateTimeField(default=datetime.now(), help_text='Report Time&Date')
