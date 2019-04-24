@@ -7,9 +7,9 @@
         <h2>Schedule for {{ prop_name }}</h2>
          <h2>Park: <a href="{{ prop_name.get_absolute_url }}">{{ prop_name }}</a></h2>
     </div>
-	<a class="btn btn-info left" href="{% url 'reservSystem:prop_calendar'%}?{{ prop_pk }}&{{ prev_month }}"> Previous Month </a>&nbsp;&nbsp;&nbsp;
-	<a class="btn btn-info" href="{% url 'reservSystem:prop_calendar'%}?{{ prop_pk }}&{{ next_month }}"> Next Month </a>
-	<a class="btn btn-info right" href="{% url 'reservSystem:prop_event_new' %}?{{ prop_pk }}"> New Reservation </a>
+	<a class="btn btn-primary btn-info left" href="{% url 'reservSystem:prop_calendar'%}?{{ prop_pk }}&{{ prev_month }}"> Previous Month </a>&nbsp;&nbsp;&nbsp;
+	<a class="btn btn-primary btn-info" href="{% url 'reservSystem:prop_calendar'%}?{{ prop_pk }}&{{ next_month }}"> Next Month </a>
+	<a class="btn btn-primary btn-info right" href="{% url 'reservSystem:prop_event_new' %}?{{ prop_pk }}"> New Reservation </a>
     <br><br>
 </div>
 {{ calendar }}
