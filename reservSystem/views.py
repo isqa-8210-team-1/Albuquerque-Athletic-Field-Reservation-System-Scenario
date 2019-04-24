@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from .forms import *
@@ -9,19 +9,23 @@ from datetime import *
 import calendar
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 # Create your views here.
 def prop_event(request, event_id=None):
-    instance = Event()
     if event_id:
         instance = get_object_or_404(Event, pk=event_id)
     else:
         instance = Event()
 
     form = EventForm(request.POST or None, instance=instance)
+
     if request.POST and form.is_valid():
-        form.save()
+        event = form.save(commit=False)
+        event.renter_email = request.user
+        event.save()
+        new_event = form.save()
         renter_email = request.user.email
         cd = form.cleaned_data
         prop_name = str(cd["prop_name"])
@@ -30,6 +34,8 @@ def prop_event(request, event_id=None):
         team_name = str(cd['Team_Name'])
         organization = str(cd['Name_of_the_organization'])
 
+        # set the order in the session
+        request.session['event_id'] = new_event.pk
         send_mail(
             'Event Reserved for: ' + prop_name,
             'Reservation details' + '\n\n' + 'Property Name: ' + prop_name + '\n' + 'Day reserved: ' + day + '\n' +
@@ -38,8 +44,9 @@ def prop_event(request, event_id=None):
             [renter_email],
             fail_silently=False,
         )
-        return render(request, 'calendar/reservation.html', {'pk': instance.id, 'renter': renter_email})
+        return redirect(reverse('payment:process'))
     return render(request, 'calendar/prop_event.html', {'form': form})
+
 
 
 class CalendarView(generic.ListView):
@@ -58,11 +65,12 @@ class CalendarView(generic.ListView):
         context['next_month'] = next_month(d)
         context['prop_pk'] = 'prop_pk='+str(prop_pk)
         context['prop_name'] = prop.name
+        context['renter_email'] = 'renter_email=' + str(self.request.user)
         # Instantiate our calendar class with today's year and date
         cal = Calendar(d.year, d.month)
 
         # Call the formatmonth method, which returns our calendar as a table
-        html_cal = cal.formatmonth(prop_pk=prop_pk, withyear=True)
+        html_cal = cal.formatmonth(user_id=self.request.user, prop_pk=prop_pk, withyear=True)
         context['calendar'] = mark_safe(html_cal)
         return context
 

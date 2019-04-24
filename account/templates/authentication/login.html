@@ -61,10 +61,9 @@
                 <button type="submit" class="save btn btn-default">Login</button>
                 <input type="hidden" name="next" value="{{ next }}"/>
             </form>
-            <!-- p align="right">
-                <a href=""><font color="black">Lost password?</font></a>&nbsp;&nbsp;
-                <a href=""><font color="black">Sign up</font></a>
-            </p -->
+            <p align="right">
+                <a href="{% url 'password_reset' %}"><font color="black">Change password</font></a>
+            </p>
         </div>
         <div class="col-md-2"></div>
     </div>

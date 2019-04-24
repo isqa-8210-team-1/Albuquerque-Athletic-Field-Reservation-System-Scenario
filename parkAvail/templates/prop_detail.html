@@ -17,6 +17,7 @@
     <p class="description">{{ prop.property_description }}</p>
       <h3>Guest Capacity: <h4>{{ prop.property_guest_capacity }}</h4></h3>
     <h3>Location in Park: <h4>{{ prop.location_in_park }}</h4></h3>
+  <h3>Price: {{ prop.price }}</h3>
   </div>
   <div>
     <a class="btn btn-primary" href="{% url 'reservSystem:prop_calendar'%}?prop_pk={{ prop.pk }}" role="button"> Schedule &raquo;</a>

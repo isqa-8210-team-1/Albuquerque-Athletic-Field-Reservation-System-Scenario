@@ -48,6 +48,7 @@ class Prop(models.Model):
                               blank=True)
     property_description = models.TextField()
     property_guest_capacity = models.IntegerField()
+    price = models.IntegerField( null=True)
     location_in_park = models.CharField(max_length=50, null=True, blank=True)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)

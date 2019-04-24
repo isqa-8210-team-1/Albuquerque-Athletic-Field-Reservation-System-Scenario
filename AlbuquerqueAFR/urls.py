@@ -29,6 +29,7 @@ urlpatterns = [
     path('park/', include('parkAvail.urls', namespace='parkAvail')),
     path('schedule/', include('reservSystem.urls', namespace='reservSystem')),
     #path('', include('parkAvail.urls')),
+    path('payment/', include('payment.urls', namespace='payment')),
 
 
     re_path(r'^accounts/profile/$', LoginView.as_view(template_name='authentication/login.html'), name="login"),
@@ -37,5 +38,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

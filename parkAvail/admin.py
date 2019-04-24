@@ -17,7 +17,7 @@ admin.site.register(Park, ParkList)
 
 class PropertyList(admin.ModelAdmin):
     list_display = ['park_under', 'name', 'slug', 'property_description', 'property_guest_capacity',
-                    'location_in_park']
+                    'location_in_park', 'price']
     list_filter = ['park_under', 'name', 'property_guest_capacity']
     # list_editable = ['park_under', 'property_description', 'property_guest_capacity']
     prepopulated_fields = {'slug': ('name',)}

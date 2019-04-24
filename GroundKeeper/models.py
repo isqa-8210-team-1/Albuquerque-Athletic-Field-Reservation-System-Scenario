@@ -2,15 +2,15 @@ from django.db import models
 from django.utils import timezone
 from parkAvail.models import Prop, Park
 from datetime import datetime
+from reservSystem.models import Event
 
 
 class FieldCondition(models.Model):
-    reservation_number = models.CharField(max_length=50)
-
+    reservation_number = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
     park_name = models.ForeignKey(Park, verbose_name='park_name', default='1', on_delete=models.SET_DEFAULT)
-    property_name = models.ForeignKey(Prop, verbose_name='property_name', default='1',on_delete=models.SET_DEFAULT)
+    property_name = models.ForeignKey(Prop, verbose_name='property_name', default='1', on_delete=models.SET_DEFAULT)
 
-    Report_Time_Date = models.DateTimeField(default=datetime.now(), help_text='Report Time&Date')
+    Report_Time_Date = models.DateTimeField(default=timezone.now(), help_text='Report Time&Date')
 
     Property_Status_Description = models.TextField(max_length=10)
 

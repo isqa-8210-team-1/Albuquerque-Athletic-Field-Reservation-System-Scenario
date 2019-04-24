@@ -5,9 +5,9 @@
   <div class="row">
         <h2><br>Reserve a property<br></h2>
   </div>
-  {% if user_form.errors %}
+  {% if form.errors %}
   <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="panel panel-danger">
                     <div class="panel-heading">Error!</div>
                     <div class="panel-body">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-8"></div>
    </div>
    {% endif %}
    <div class="row">
@@ -40,14 +40,15 @@
          <div class="col-md-4">
                 <form method="post">
                   {% csrf_token %}
+                    {{ form.park_name|as_crispy_field }}
                     {{ form.prop_name|as_crispy_field }}
                     {{form.Name_of_the_organization | as_crispy_field}}
                     {{form.Team_Name | as_crispy_field}}
                     {{form.Size_of_the_team | as_crispy_field}}
                     <input class="form-control" id="day" name="day" placeholder="MM/DD/YYYY" type="date"/>
                     {{ form.timeslot|as_crispy_field }}
+                    <a href ="{% url 'payment:process'%}"><button type="submit" class="btn btn-info right"> Submit </button></a>
 
-                    <button type="submit" class="btn btn-info right"> Submit </button>
 
                 </form>
          </div>

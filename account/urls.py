@@ -25,4 +25,13 @@ urlpatterns = [
     path('FAQ/', views.FAQ, name='FAQ'),
     # path('admin/', admin.site.urls),
     path('', include('GroundKeeper.urls')),
+
+    re_path(r'^accounts/password_reset/$', auth_views.PasswordResetView.as_view(template_name='authentication/password_r_form.html',
+                                                                                email_template_name = 'authentication/password_r_email.html',
+                                                                                subject_template_name = 'authentication/password_reset_subject.txt'),
+            name='password_reset'),
+    re_path(r'^accounts/password_reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name='authentication/password_r_done.html'), name='password_reset_done'),
+    path('accounts/password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='authentication/password_r_confirm.html'), name='password_reset_confirm'),
+    path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='authentication/password_r_complete.html'), name='password_reset_complete'),
+
 ]

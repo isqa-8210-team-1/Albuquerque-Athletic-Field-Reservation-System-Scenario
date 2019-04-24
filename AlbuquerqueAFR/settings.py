@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import dj_database_url
+from braintree import Configuration, Environment
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -147,16 +148,14 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Amazon S3
 
-AWS_ACCESS_KEY_ID = 'AKIAYCKPFV4KXTLLP6PO'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'afrteam'
+AWS_ACCESS_KEY_ID = 'AKIAJ3VOBXQGFA54PI5Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'afr.team1'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
-
-AWS_DEFAULT_ACL = None
 #
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -168,20 +167,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Amazon S3
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-# 8210projectT1/AlbuquerqueAFR/
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '8210projectT1/AlbuquerqueAFR/static'),
+]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 #
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = 'YOUR HOST USER'
+# EMAIL_HOST_PASSWORD = 'YOUR HOST PASSWORD'
+# EMAIL_PORT = 2525
+# #EMAIL_USE_TLS = True
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'awesomemsdteam1'
@@ -194,4 +193,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+# Braintree settings
+BRAINTREE_MERCHANT_ID = 'hkmc8zh4c5s3tgnv'  # Merchant ID
+BRAINTREE_PUBLIC_KEY = '4xbv85f9jvyf8xx9'  # Public Key
+BRAINTREE_PRIVATE_KEY = '74eb7591e7bf71e9175c5e5aff3e9adc'
 
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+    )

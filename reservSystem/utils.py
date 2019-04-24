@@ -11,33 +11,41 @@ class Calendar(HTMLCalendar):
 
 	# formats a day as a td
 	# filter events by day
-	def formatday(self, day, events):
+	def formatday(self, day, events, events_cu):
 		events_per_day = events.filter(day__day=day)
+		events_cu_per_day = events_cu.filter(day__day=day)
 		d = ''
 		for event in events_per_day:
 			# d = d.remo
-			d += f'<li> {event.get_html_url} </li>'
+			isEventCU = False
+			for event1 in events_cu_per_day:
+				if event == event1:
+					d += f'<li>{event.get_html_url}</li>'
+					isEventCU = True
+					break
+			if isEventCU == False:
+				d += f'<li> {event.timeslot} </li>'
 
 		if day != 0:
 			return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"
 		return '<td></td>'
 
 	# formats a week as a tr
-	def formatweek(self, theweek, events):
+	def formatweek(self, theweek, events, event_cu):
 		week = ''
 		for d, weekday in theweek:
-			week += self.formatday(d, events)
+			week += self.formatday(d, events, event_cu)
 		return f'<tr> {week} </tr>'
 
 	# formats a month as a table
 	# filter events by year and month
-	def formatmonth(self, prop_pk, withyear=True):
+	def formatmonth(self, user_id, prop_pk, withyear=True):
 		events = Event.objects.filter(prop_name_id= prop_pk, day__year=self.year, day__month=self.month)
-
+		events_currentuser = Event.objects.filter(renter_email= user_id, prop_name_id=prop_pk, day__year=self.year, day__month=self.month)
 		cal = f'<table border="0" cellpadding="0" cellspacing="0" class="calendar">\n'
 		cal += f'{self.formatmonthname(self.year, self.month, withyear=withyear)}\n'
 		cal += f'{self.formatweekheader()}\n'
 		for week in self.monthdays2calendar(self.year, self.month):
-			cal += f'{self.formatweek(week, events)}\n'
+			cal += f'{self.formatweek(week, events, events_currentuser)}\n'
 		return cal
 

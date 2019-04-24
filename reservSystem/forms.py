@@ -20,7 +20,7 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ('prop_name', 'day', 'timeslot', 'notes', 'Team_Name', 'Size_of_the_team', 'Name_of_the_organization')
+        fields = ('park_name', 'prop_name', 'day', 'timeslot', 'notes', 'Team_Name', 'Size_of_the_team', 'Name_of_the_organization')
 
         # datetime-local is a HTML5 input type, format to make date time show on fields
         widgets = {

@@ -3,18 +3,22 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from parkAvail.models import Prop, Park
+from account.models import MyUser
 from django.core.exceptions import ValidationError
 from datetime import *
 
 
 class Event(models.Model):
+    park_name = models.ForeignKey(Park, related_name='park_name', on_delete=models.CASCADE)
     prop_name = models.ForeignKey(Prop, related_name='prop_name', on_delete=models.CASCADE)
+    renter_email = models.ForeignKey(MyUser, related_name='renter_email', on_delete=models.CASCADE)
     day = models.DateField(u'Day of the event', help_text=u'Day of the event')
     notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
     Team_Name = models.CharField(u'Team Name', help_text=u'Team name', blank=True, null=True, max_length=255)
     Size_of_the_team = models.CharField(u'size of the team', help_text=u'Capacity', blank=True, null=True, max_length=3)
     Name_of_the_organization = models.CharField(u'Name of the Organization', help_text=u'Organization name',
                                                 max_length=100, blank=True, null=True)
+    braintree_id = models.CharField(max_length=150, blank=True)
 
     TimeSlot = (
         ('M1', 'M1- 6.00 A.M to 8.00 A.M'),
