@@ -21,7 +21,8 @@ def FieldCondition_new(request):
            field = form.save(commit=False)
            field.created_date = timezone.now()
            field.save()
-           event = form.cleaned_data["event_id"]
+           print(form.cleaned_data)
+           event = form.cleaned_data["reservation_number"]
            print(event)
            print(event.id)
            event_obj = Event.objects.get(id=event.id)

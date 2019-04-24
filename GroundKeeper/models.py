@@ -70,5 +70,3 @@ class FieldCondition(models.Model):
 
     def __str__(self):
         return self.reservation_number
-
-
