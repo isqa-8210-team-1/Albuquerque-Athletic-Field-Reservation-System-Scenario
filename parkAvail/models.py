@@ -44,7 +44,7 @@ class Prop(models.Model):
     park_under = models.ForeignKey(Park, related_name='props', on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='https://afrteam.s3.amazonaws.com/static/props/%Y/%m/%d',
+    image = models.ImageField(upload_to='props/%Y/%m/%d',
                               blank=True)
     property_description = models.TextField()
     property_guest_capacity = models.IntegerField()
