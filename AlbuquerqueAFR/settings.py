@@ -98,7 +98,7 @@ DATABASES = {
 }
 
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
     db_from_env = dj_database_url.config(conn_max_age=500)
@@ -149,7 +149,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 AWS_ACCESS_KEY_ID = 'AKIAYCKPFV4KXTLLP6PO'
 AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'afr.team1'
+AWS_STORAGE_BUCKET_NAME = 'afrteam'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
