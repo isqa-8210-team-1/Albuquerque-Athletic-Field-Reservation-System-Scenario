@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="" />
+    <list default="true" id="415e455f-34f0-4d06-83f8-da01977d01d1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +32,11 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -58,7 +60,7 @@
         <counts>
           <entry key="gitignore" value="10" />
           <entry key="html" value="95" />
-          <entry key="py" value="125" />
+          <entry key="py" value="133" />
           <entry key="txt" value="47" />
         </counts>
       </usages-collector>
@@ -66,7 +68,7 @@
         <counts>
           <entry key="HTML" value="95" />
           <entry key="PLAIN_TEXT" value="57" />
-          <entry key="Python" value="125" />
+          <entry key="Python" value="133" />
         </counts>
       </usages-collector>
     </session>
@@ -76,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="156" column="1" lean-forward="true" selection-start-line="156" selection-start-column="1" selection-end-line="156" selection-end-column="1" />
+            <state relative-caret-position="255">
+              <caret line="95" column="16" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
               <folding>
                 <element signature="e#315#324#0" expanded="true" />
               </folding>
@@ -221,8 +223,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20678514" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21001616" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -397,16 +400,8 @@
     <entry file="file://$PROJECT_DIR$/account/templates/authentication/logout.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/registration/FieldCondition_Add.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/registration/FieldCondition_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/registration/FieldCondition_Add.html" />
+    <entry file="file://$PROJECT_DIR$/account/templates/registration/FieldCondition_edit.html" />
     <entry file="file://$PROJECT_DIR$/account/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-483" />
@@ -417,11 +412,7 @@
         <state relative-caret-position="-543" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservSystem/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/reservSystem/migrations/0001_initial.py" />
     <entry file="file://$PROJECT_DIR$/account/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -450,13 +441,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/account/templates/registration/FieldCondition.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/account/templates/registration/FieldCondition.html" />
     <entry file="file://$PROJECT_DIR$/GroundKeeper/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -505,19 +490,15 @@
     <entry file="file://$PROJECT_DIR$/GroundKeeper/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GroundKeeper/migrations/0003_auto_20190420_1859.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GroundKeeper/migrations/0002_auto_20190420_1858.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GroundKeeper/migrations/0003_auto_20190420_1859.py" />
+    <entry file="file://$PROJECT_DIR$/GroundKeeper/migrations/0002_auto_20190420_1858.py" />
     <entry file="file://$PROJECT_DIR$/GroundKeeper/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/AlbuquerqueAFR/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="156" column="1" lean-forward="true" selection-start-line="156" selection-start-column="1" selection-end-line="156" selection-end-column="1" />
+        <state relative-caret-position="255">
+          <caret line="95" column="16" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
           <folding>
             <element signature="e#315#324#0" expanded="true" />
           </folding>
