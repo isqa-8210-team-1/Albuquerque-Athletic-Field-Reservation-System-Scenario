@@ -27,9 +27,10 @@ urlpatterns = [
 
     path('', include('managePark.urls')),
     path('park/', include('parkAvail.urls', namespace='parkAvail')),
+    path('payment/', include('payment.urls', namespace='payment')),
+
     path('schedule/', include('reservSystem.urls', namespace='reservSystem')),
     #path('', include('parkAvail.urls')),
-    path('payment/', include('payment.urls', namespace='payment')),
 
 
     re_path(r'^accounts/profile/$', LoginView.as_view(template_name='authentication/login.html'), name="login"),

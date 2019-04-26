@@ -99,7 +99,7 @@ DATABASES = {
 }
 
 try:
-    from .local_settings import *
+    from local_settings import *
 except ImportError:
     # Update database configuration with $DATABASE_URL.
     db_from_env = dj_database_url.config(conn_max_age=500)
@@ -147,11 +147,10 @@ USE_TZ = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Amazon S3
-#AKIAJ3VOBXQGFA54PI5Q
-#80Rg1XJXGCTEVMlYJOCDoUWyiepK2/cA/7At9ck3
-AWS_ACCESS_KEY_ID = 'AKIAYCKPFV4KVDX5DICE'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'afrteam'
+
+AWS_ACCESS_KEY_ID = 'AKIAJ3VOBXQGFA54PI5Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'afr.team1'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
@@ -161,18 +160,18 @@ AWS_LOCATION = 'static'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# STATIC_URL = '/static/'
 
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),)
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Amazon S3
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '8210projectT1/AlbuquerqueAFR/static'),
+]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 #
 
@@ -194,15 +193,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
-
 # Braintree settings
-BRAINTREE_MERCHANT_ID = 'hkmc8zh4c5s3tgnv'  # Merchant ID
-BRAINTREE_PUBLIC_KEY = '4xbv85f9jvyf8xx9'  # Public Key
-BRAINTREE_PRIVATE_KEY = '74eb7591e7bf71e9175c5e5aff3e9adc'
+BRAINTREE_MERCHANT_ID = 'bhdnd6kwng7vmt6b'  # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'pz4ftrq8mxtzmybr'  # Public Key
+BRAINTREE_PRIVATE_KEY = '9c79657aa53078eef81076e3e125ed64'
 
 Configuration.configure(
     Environment.Sandbox,

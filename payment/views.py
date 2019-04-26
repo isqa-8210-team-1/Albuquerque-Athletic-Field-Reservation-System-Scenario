@@ -12,12 +12,13 @@ def payment_process(request):
     event_id = request.session.get("event_id")
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
-        print('inside post method')
+        #print('inside post method')
         # retrieve nonce
         nonce = request.POST.get('payment_method_nonce', None)
         # create and submit transaction
+
         result = braintree.Transaction.sale({
-            'amount': '{:.2f}'.format(Prop.price),  # create a new amount field
+            'amount': '10',  # create a new amount field  #format(Prop.price)
             'payment_method_nonce': nonce,
             'options': {
                 'submit_for_settlement': True  #give false pending payment
@@ -25,18 +26,18 @@ def payment_process(request):
         })
         if result.is_success:
             # mark the order as paid
-            print('inside success')
+            #print('inside success')
             event.paid = True
             # store the unique transaction id
             event.braintree_id = result.transaction.id
             event.save()
 
-            return redirect('payment:done.html')
+            return redirect('payment:done')
         else:
-            return redirect('payment:canceled.html')
+            return redirect('payment:canceled')
     else:
         # generate token
-        print('get method')
+        #print('get method')
         client_token = braintree.ClientToken.generate()
         return render(request,
                       'payment/process.html',

@@ -9,5 +9,6 @@ django-taggit==0.22.2
 pillow==5.4.1
 django-reservation
 boto3
-Braintree==3.45.0
+Braintree==3.52.0
 django-storages==1.7.1
+celery==4.2.1
