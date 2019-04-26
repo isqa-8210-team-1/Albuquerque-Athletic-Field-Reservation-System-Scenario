@@ -147,10 +147,11 @@ USE_TZ = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Amazon S3
-
-AWS_ACCESS_KEY_ID = 'AKIAJ3VOBXQGFA54PI5Q'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'afr.team1'
+#AKIAJ3VOBXQGFA54PI5Q
+#80Rg1XJXGCTEVMlYJOCDoUWyiepK2/cA/7At9ck3
+AWS_ACCESS_KEY_ID = 'AKIAYCKPFV4KVDX5DICE'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'afrteam'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
@@ -160,18 +161,16 @@ AWS_LOCATION = 'static'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),)
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Amazon S3
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '8210projectT1/AlbuquerqueAFR/static'),
-]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
@@ -197,7 +196,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
 
 # Braintree settings
 BRAINTREE_MERCHANT_ID = 'bhdnd6kwng7vmt6b'  # Merchant ID
