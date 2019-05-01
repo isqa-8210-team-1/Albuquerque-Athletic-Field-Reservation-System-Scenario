@@ -143,7 +143,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+"""""
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Amazon S3
@@ -173,8 +173,31 @@ STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+"""#
 
-#
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'AlbuquerqueAFR/static'),
+)
+
+
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # EMAIL_HOST = 'smtp.mailtrap.io'
@@ -193,9 +216,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 # Braintree settings
 BRAINTREE_MERCHANT_ID = 'bhdnd6kwng7vmt6b'  # Merchant ID
